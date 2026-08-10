@@ -1,0 +1,69 @@
+name: Build standalone apps
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: Project ID from catalog/projects.json, or all
+        required: true
+        default: all
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      projects: ${{ steps.matrix.outputs.projects }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Validate catalog and select recipes
+        id: matrix
+        env:
+          REQUESTED_PROJECT: ${{ inputs.project }}
+        run: |
+          ./scripts/validate-catalog.sh
+          if [[ "$REQUESTED_PROJECT" == "all" ]]; then
+            projects="$(jq -c '[.projects[] | select(.build.state == "ready") | .id]' catalog/projects.json)"
+          else
+            jq -e --arg id "$REQUESTED_PROJECT" \
+              'any(.projects[]; .id == $id and .build.state == "ready")' \
+              catalog/projects.json >/dev/null || {
+                echo "Unknown or non-buildable project: $REQUESTED_PROJECT" >&2
+                exit 1
+              }
+            projects="$(jq -cn --arg id "$REQUESTED_PROJECT" '[$id]')"
+          fi
+          echo "projects=$projects" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJSON(needs.prepare.outputs.projects) }}
+    runs-on: macos-15
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Build exact pinned source and audit IPA
+        env:
+          PROJECT_ID: ${{ matrix.project }}
+        run: ./scripts/build-project.sh --install-dependencies "$PROJECT_ID"
+
+      - name: Upload IPA, audit, and provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: ${{ matrix.project }}-unsigned-ipa
+          path: artifacts/builds/${{ matrix.project }}/
+          if-no-files-found: error
+          retention-days: 14

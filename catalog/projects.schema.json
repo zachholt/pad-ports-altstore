@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pad-ports/projects.schema.json",
+  "title": "Pad Ports project catalog",
+  "type": "object",
+  "required": ["schemaVersion", "accountOwner", "source", "projects"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "accountOwner": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "required": ["name", "subtitle", "description", "tintColor"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "tintColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/project" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "repository", "technical", "legal", "build", "altStore"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "repository": {
+          "type": "object",
+          "required": ["slug", "defaultBranch", "revision", "checkoutDirectory", "checkoutPolicy", "submodules"],
+          "properties": {
+            "slug": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+            "defaultBranch": { "type": "string", "minLength": 1 },
+            "revision": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+            "checkoutDirectory": { "type": "string", "pattern": "^[A-Za-z0-9._-]+$" },
+            "checkoutPolicy": { "enum": ["default", "optIn"] },
+            "submodules": { "enum": ["none", "recipe", "recursive"] }
+          },
+          "additionalProperties": false
+        },
+        "technical": {
+          "type": "object",
+          "required": ["status", "note"],
+          "properties": {
+            "status": { "enum": ["buildRecipeReady", "auditBlocked", "manualBuild", "ciStubOnly", "auditedUpstreamArtifact", "portRequired"] },
+            "note": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "legal": {
+          "type": "object",
+          "required": ["spdxExpression", "distributionReview", "rehostAllowed", "note"],
+          "properties": {
+            "spdxExpression": { "type": "string", "minLength": 1 },
+            "distributionReview": { "enum": ["approvedForDirectLink", "approvedForRehost", "upstreamLinkOnly", "conditionalRehost", "blocked"] },
+            "rehostAllowed": { "type": "boolean" },
+            "note": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        "build": {
+          "type": "object",
+          "required": ["state", "recipe", "runner", "brewPackages", "expectedBundleIdentifier"],
+          "properties": {
+            "state": { "enum": ["ready", "auditBlocked", "manual", "none", "upstreamArtifact"] },
+            "recipe": { "type": ["string", "null"] },
+            "runner": { "type": "string", "minLength": 1 },
+            "brewPackages": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[a-z0-9@+_.-]+$" },
+              "uniqueItems": true
+            },
+            "expectedBundleIdentifier": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "altStore": {
+          "type": "object",
+          "required": ["status", "delivery", "exclusionReasons", "app", "versions"],
+          "properties": {
+            "status": { "enum": ["eligible", "excluded"] },
+            "delivery": { "enum": ["upstreamRelease", "centralRelease", "none"] },
+            "exclusionReasons": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+            "app": { "type": ["object", "null"] },
+            "versions": { "type": "array" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

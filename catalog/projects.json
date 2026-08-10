@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": 1,
+  "accountOwner": "chrissotraidis",
+  "source": {
+    "name": "Pad Ports",
+    "subtitle": "Audited iPhone and iPad game ports",
+    "description": "Standalone, ROM-free iPhone and iPad ports linked from hash-pinned GitHub releases.",
+    "tintColor": "#5856D6"
+  },
+  "projects": [
+    {
+      "id": "annepad",
+      "name": "AnnePad",
+      "repository": {
+        "slug": "chrissotraidis/annepad",
+        "defaultBranch": "main",
+        "revision": "73309971bbc250be4d50a43adbcdc64988e681de",
+        "checkoutDirectory": "annepad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The repository has a ROM-free unsigned iOS packaging path."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Use a hash-pinned project-owned release asset only; do not mirror until the recompilation and frontend grants are complete."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/annepad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja"],
+        "expectedBundleIdentifier": "com.chrissotraidis.annepad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "AnnePad",
+          "developerName": "AnnePad contributors",
+          "subtitle": "Pokemon Stadium rebuilt for iPhone and iPad",
+          "localizedDescription": "A native arm64 static recompilation with Metal presentation and touch controls. The IPA contains no ROM; supply game data you are authorized to use inside the app.",
+          "category": "games",
+          "tintColor": "#C34B62",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/annepad/73309971bbc250be4d50a43adbcdc64988e681de/apple/app/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "73309971bbc250be4d50a43adbcdc64988e681de",
+            "pageURL": "https://github.com/chrissotraidis/annepad/releases/tag/v0.1.0-preview.2",
+            "assetName": "AnnePad-0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/annepad/releases/download/v0.1.0-preview.2/AnnePad-0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-08-06T09:32:38Z",
+            "size": 85316453,
+            "sha256": "7de5fcc85824babbea83f1436fc7c10f70a17b17aed28fe422d5fadb4f3282c9",
+            "versionDescription": "Project-owned AnnePad preview 2 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.annepad",
+              "version": "0.1.0",
+              "buildVersion": "1",
+              "minimumOS": "16.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 100,
+              "maximumUncompressedSize": 500000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "barrelpad",
+      "name": "BarrelPad",
+      "repository": {
+        "slug": "chrissotraidis/barrelpad",
+        "defaultBranch": "main",
+        "revision": "a71b95c56282ba4d595ae741081f5fa9601f785a",
+        "checkoutDirectory": "barrelpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "A device app can be built, but there is no reviewed IPA release recipe."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "No repository-wide outbound grant has been established."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["noAuditedIPA", "distributionPermissionRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "bearbirdpad",
+      "name": "BearBirdPad",
+      "repository": {
+        "slug": "chrissotraidis/bearbirdpad",
+        "defaultBranch": "main",
+        "revision": "4de35cdfdeec727e47d461ebcd74b687a1194ae0",
+        "checkoutDirectory": "bearbirdpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "ciStubOnly",
+        "note": "Current public CI proves a ROM-free simulator stub, not a releasable device app recipe."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0-or-later",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Generated game-code and frontend redistribution boundaries remain under review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "BearBirdPad",
+          "developerName": "BearBirdPad contributors",
+          "subtitle": "Banjo-Kazooie rebuilt for iPhone and iPad",
+          "localizedDescription": "A native Metal-backed recompilation with touch and controller support. The distributed app contains no ROM and imports user-supplied authorized data locally.",
+          "category": "games",
+          "tintColor": "#C89838",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/bearbirdpad/2dabf37b980492a35a25d228ff5c06166f4677d1/ios/app/BearBirdPadIcon.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.1",
+            "sourceRevision": "2dabf37b980492a35a25d228ff5c06166f4677d1",
+            "pageURL": "https://github.com/chrissotraidis/bearbirdpad/releases/tag/v0.1.0-preview.1",
+            "assetName": "BearBirdPad-0.1.0-preview.1-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/bearbirdpad/releases/download/v0.1.0-preview.1/BearBirdPad-0.1.0-preview.1-unsigned.ipa",
+            "publishedAt": "2026-07-31T13:00:16Z",
+            "size": 10107630,
+            "sha256": "275aefb38924f5d1edd1c7361ef47df5bc961e005eade51954d7cfe647ab6b24",
+            "versionDescription": "Project-owned BearBirdPad preview 1 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.bearbirdpad",
+              "version": "0.1.0",
+              "buildVersion": "1",
+              "minimumOS": "16.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 50000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "bellpad",
+      "name": "BellPad",
+      "repository": {
+        "slug": "chrissotraidis/bellpad",
+        "defaultBranch": "main",
+        "revision": "2f09cdd66d9102ababc8d9d65420450235389be2",
+        "checkoutDirectory": "bellpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "A native device build exists, but release automation is not yet standardized."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "The mixed project does not currently grant broad redistribution rights for the integration."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["noAuditedIPA", "distributionPermissionRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "brawlerpad",
+      "name": "BrawlerPad",
+      "repository": {
+        "slug": "chrissotraidis/brawlerpad",
+        "defaultBranch": "main",
+        "revision": "580346325358a3bff1033f687b9176245eeca693",
+        "checkoutDirectory": "brawlerpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The repository has reproducible device-build and ROM-free packaging scripts."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "The decompilation tree is not covered by a clear project-wide redistribution grant."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/brawlerpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja", "pkgconf", "python@3.11", "sdl2", "glew", "nlohmann-json", "libzip", "tinyxml2", "libogg", "libvorbis"],
+        "expectedBundleIdentifier": "com.brawlerpad.app"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "BrawlerPad",
+          "developerName": "BrawlerPad contributors",
+          "subtitle": "Super Smash Bros. 64 rebuilt for iPhone and iPad",
+          "localizedDescription": "A native Apple-platform port with Metal, controller routing, and adaptive touch controls. Bring authorized game data separately; none is present in the IPA.",
+          "category": "games",
+          "tintColor": "#D34A3D",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/brawlerpad/adb63026705f45a5710cc06ef1207222fd87ee8f/assets/ios/BrawlerPad.xcassets/AppIcon.appiconset/AppIcon.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.1",
+            "sourceRevision": "adb63026705f45a5710cc06ef1207222fd87ee8f",
+            "pageURL": "https://github.com/chrissotraidis/brawlerpad/releases/tag/v0.1.0-preview.1",
+            "assetName": "BrawlerPad-0.1.0-preview.1-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/brawlerpad/releases/download/v0.1.0-preview.1/BrawlerPad-0.1.0-preview.1-unsigned.ipa",
+            "publishedAt": "2026-08-07T10:32:28Z",
+            "size": 7085261,
+            "sha256": "3d8a12803c86ae066e3d33f26e80d4400d9ed9e9cd00191a104e95351f3f936f",
+            "versionDescription": "Project-owned BrawlerPad preview 1 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.brawlerpad.app",
+              "version": "0.1.0",
+              "buildVersion": "1",
+              "minimumOS": "17.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 200,
+              "maximumUncompressedSize": 50000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "caesarpad",
+      "name": "CaesarPad",
+      "repository": {
+        "slug": "chrissotraidis/caesarpad",
+        "defaultBranch": "main",
+        "revision": "07a8d38a4eae77d01c6d980ecbc36de8fad97ef6",
+        "checkoutDirectory": "caesarpad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The repository builds and audits an unsigned ROM-free device IPA."
+      },
+      "legal": {
+        "spdxExpression": "AGPL-3.0-only",
+        "distributionReview": "conditionalRehost",
+        "rehostAllowed": true,
+        "note": "Publication requires matching corresponding source, notices, and the complete AGPL compliance package."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/caesarpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja"],
+        "expectedBundleIdentifier": "com.chrissotraidis.caesarpad"
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "centralRelease",
+        "exclusionReasons": ["releaseReviewRequired", "correspondingSourceRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "ctrpad",
+      "name": "CTRPad",
+      "repository": {
+        "slug": "chrissotraidis/ctrpad",
+        "defaultBranch": "main",
+        "revision": "ef9c0059950b1c6cd78458612b3608e22bb987ed",
+        "checkoutDirectory": "ctrpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "auditBlocked",
+        "note": "The source compiles and packages, but the resulting IPA omits CFBundleSupportedPlatforms and fails the device-bundle audit."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0-only",
+        "distributionReview": "conditionalRehost",
+        "rehostAllowed": true,
+        "note": "Publication requires the exact corresponding-source and notice artifacts beside the IPA."
+      },
+      "build": {
+        "state": "auditBlocked",
+        "recipe": "recipes/ctrpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja"],
+        "expectedBundleIdentifier": "io.github.chrissotraidis.ctrpad"
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "centralRelease",
+        "exclusionReasons": ["releaseReviewRequired", "correspondingSourceRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "daggerpad",
+      "name": "DaggerPad",
+      "repository": {
+        "slug": "chrissotraidis/daggerpad",
+        "defaultBranch": "main",
+        "revision": "3ec5ff8b25829b9f8e8f01f5adc9507721c3e24c",
+        "checkoutDirectory": "daggerpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The iOS export requires a pinned Unity editor and a manual Unity-to-Xcode lane."
+      },
+      "legal": {
+        "spdxExpression": "MIT",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "Unity runtime, font, asset, and dependency redistribution need a complete review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["manualUnityBuild", "distributionReviewRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "deviltouch",
+      "name": "DevilTouch",
+      "repository": {
+        "slug": "chrissotraidis/deviltouch",
+        "defaultBranch": "main",
+        "revision": "7f609ed22afc75fdfe4ff05f27e486e9bd14a253",
+        "checkoutDirectory": "deviltouch",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The repository is a source-only device-tested preview without a public IPA packaging lane."
+      },
+      "legal": {
+        "spdxExpression": "LicenseRef-Sustainable-Use",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "Any release must remain free and noncommercial and still needs a component-level audit."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["noAuditedIPA", "nonCommercialReviewRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "dusklight",
+      "name": "DuskLight",
+      "repository": {
+        "slug": "TwilitRealm/dusklight",
+        "defaultBranch": "main",
+        "revision": "7434a0f834866294e7691bd86ab9527011265585",
+        "checkoutDirectory": "dusklight",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "auditedUpstreamArtifact",
+        "note": "The official iOS 14 arm64 IPA uses a WebGPU-to-Metal path."
+      },
+      "legal": {
+        "spdxExpression": "CC0-1.0",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Link the hash-pinned upstream asset. Rehosting still requires dependency, artwork, and trademark review."
+      },
+      "build": {
+        "state": "upstreamArtifact",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": "dev.twilitrealm.dusk"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "DuskLight",
+          "developerName": "TwilitRealm contributors",
+          "subtitle": "Twilight Princess rebuilt for iPhone and iPad",
+          "localizedDescription": "A reverse-engineered GameCube engine with an iOS arm64 build backed by Metal. Supply your own authorized supported disc image inside the app.",
+          "category": "games",
+          "tintColor": "#5046B8",
+          "iconURL": "https://raw.githubusercontent.com/TwilitRealm/dusklight/f5642f307384bd4b7b7a09f690e391152445c815/res/icon.png"
+        },
+        "versions": [
+          {
+            "tag": "v1.4.1",
+            "sourceRevision": "f5642f307384bd4b7b7a09f690e391152445c815",
+            "pageURL": "https://github.com/TwilitRealm/dusklight/releases/tag/v1.4.1",
+            "assetName": "Dusklight-v1.4.1-ios-arm64.ipa",
+            "downloadURL": "https://github.com/TwilitRealm/dusklight/releases/download/v1.4.1/Dusklight-v1.4.1-ios-arm64.ipa",
+            "publishedAt": "2026-06-16T22:33:28Z",
+            "size": 27125007,
+            "sha256": "abe2265bfc099f9cacb3cb8cebcb8b9914d0384ee256a3e82bd5d5494d9a04ca",
+            "versionDescription": "Official upstream DuskLight v1.4.1 iOS arm64 release. No recognized game-image files were found in the audited artifact.",
+            "audit": {
+              "bundleIdentifier": "dev.twilitrealm.dusk",
+              "version": "1.4.1",
+              "buildVersion": "1.4.1.0",
+              "minimumOS": "14.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 1000,
+              "maximumUncompressedSize": 100000000,
+              "forbiddenGameDataExtensions": ["iso", "gcm", "rvz", "wia", "wbfs", "ciso", "gcz", "nfs", "tgc", "z64", "n64", "v64"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "harkinianpad",
+      "name": "HarkinianPad",
+      "repository": {
+        "slug": "chrissotraidis/harkinianpad",
+        "defaultBranch": "main",
+        "revision": "1197472956cd2c4dd3f03fb6fe5f2dfb28d30ad7",
+        "checkoutDirectory": "harkinianpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The project has a reproducible unsigned device-app and ROM-free packaging workflow."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "The project-owned integration is not granted for independent mirroring."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/harkinianpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net"],
+        "expectedBundleIdentifier": "com.chrissotraidis.harkinianpad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "HarkinianPad",
+          "developerName": "HarkinianPad contributors",
+          "subtitle": "Ocarina of Time rebuilt for iPhone and iPad",
+          "localizedDescription": "Ship of Harkinian adapted for Metal, touch, and Apple controllers. The app is ROM-free and accepts user-supplied authorized data after installation.",
+          "category": "games",
+          "tintColor": "#3E8B58",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/harkinianpad/d5283b107fe32a1406eb498d3531d88e966a5022/assets/AppIcon.appiconset/AppIcon.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.3",
+            "sourceRevision": "d5283b107fe32a1406eb498d3531d88e966a5022",
+            "pageURL": "https://github.com/chrissotraidis/harkinianpad/releases/tag/v0.1.0-preview.3",
+            "assetName": "HarkinianPad-0.1.0-preview.3-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/harkinianpad/releases/download/v0.1.0-preview.3/HarkinianPad-0.1.0-preview.3-unsigned.ipa",
+            "publishedAt": "2026-07-29T21:13:51Z",
+            "size": 30839704,
+            "sha256": "bc1f4f8a8306fa0ef1ebd3ad47005f73b1d49e4ca671d6084f23fbc56ad0293d",
+            "versionDescription": "Project-owned HarkinianPad preview 3 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.harkinianpad",
+              "version": "0.1.0",
+              "buildVersion": "3",
+              "minimumOS": "14.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 12000,
+              "maximumUncompressedSize": 150000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "maskpad",
+      "name": "MaskPad",
+      "repository": {
+        "slug": "chrissotraidis/maskpad",
+        "defaultBranch": "main",
+        "revision": "a3dc94bf00f481a6f60cd9306493eebc824ca63c",
+        "checkoutDirectory": "maskpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The project has a reproducible unsigned device-app and ROM-free packaging workflow."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "The integration remains all-rights-reserved; link only to a hash-pinned project-owned asset."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/maskpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net"],
+        "expectedBundleIdentifier": "com.chrissotraidis.maskpad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "MaskPad",
+          "developerName": "MaskPad contributors",
+          "subtitle": "Majora's Mask rebuilt for iPhone and iPad",
+          "localizedDescription": "2 Ship 2 Harkinian rebuilt for Metal, touch, and Apple controllers. The app contains no ROM and imports authorized user data locally.",
+          "category": "games",
+          "tintColor": "#7653A6",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/maskpad/a3dc94bf00f481a6f60cd9306493eebc824ca63c/ios/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0",
+            "sourceRevision": "a3dc94bf00f481a6f60cd9306493eebc824ca63c",
+            "pageURL": "https://github.com/chrissotraidis/maskpad/releases/tag/v0.1.0",
+            "assetName": "MaskPad-0.1.0-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/maskpad/releases/download/v0.1.0/MaskPad-0.1.0-unsigned.ipa",
+            "publishedAt": "2026-08-03T18:01:55Z",
+            "size": 17532061,
+            "sha256": "22d34dc827e13a1a39fd0b35663dc9d46901b1a8e21624d5c1cddb072124d1f8",
+            "versionDescription": "Project-owned MaskPad v0.1.0 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.maskpad",
+              "version": "0.1.0",
+              "buildVersion": "1",
+              "minimumOS": "14.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 3000,
+              "maximumUncompressedSize": 100000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "openrct2touch",
+      "name": "OpenRCT2 Touch",
+      "repository": {
+        "slug": "chrissotraidis/OpenRCT2Touch",
+        "defaultBranch": "ipad",
+        "revision": "35b9a82b3acc7caa466d97ac59b49c7836805d2f",
+        "checkoutDirectory": "OpenRCT2Touch",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The fork contains an unsigned ROM-free iPadOS build and package path."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0-or-later",
+        "distributionReview": "conditionalRehost",
+        "rehostAllowed": true,
+        "note": "Publication requires the exact corresponding-source, notices, and build information."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/openrct2touch/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["ccache", "cmake", "ninja", "pkgconf"],
+        "expectedBundleIdentifier": "com.chrissotraidis.openrct2touch"
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "centralRelease",
+        "exclusionReasons": ["physicalDeviceAcceptanceRequired", "correspondingSourceRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "opengoal",
+      "name": "OpenGOAL",
+      "repository": {
+        "slug": "open-goal/jak-project",
+        "defaultBranch": "master",
+        "revision": "641fb572e876750d8618434d9f7c1a531b43b366",
+        "checkoutDirectory": "opengoal",
+        "checkoutPolicy": "optIn",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "portRequired",
+        "note": "There is no supported iOS target; ARM64 runtime, Metal rendering, extraction, and lifecycle work remain."
+      },
+      "legal": {
+        "spdxExpression": "ISC",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "The code license does not create an iOS artifact or grant rights to original game assets."
+      },
+      "build": {
+        "state": "none",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["portRequired", "noIOSArtifact"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "peonpad",
+      "name": "PeonPad",
+      "repository": {
+        "slug": "chrissotraidis/peonpad",
+        "defaultBranch": "main",
+        "revision": "7e15bf3278a7869d046dc8286539868b1199eff5",
+        "checkoutDirectory": "peonpad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The current app build is explicitly local-test-only and has no public IPA packaging lane."
+      },
+      "legal": {
+        "spdxExpression": "GPL-2.0-only",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "The staged asset layer and public redistribution boundary need resolution first."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": ["localTestOnly", "assetLicenseReviewRequired"],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "ratouch",
+      "name": "RAtouch",
+      "repository": {
+        "slug": "chrissotraidis/ratouch",
+        "defaultBranch": "main",
+        "revision": "8ecbc1890ee7ed2c05fb7897062b375b35ff0451",
+        "checkoutDirectory": "ratouch",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The project has a ROM-free unsigned IPA packaging script."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0-only WITH LicenseRef-EA-Additional-Terms",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Use the project-owned asset while the EA additional terms and trademark boundaries remain under review."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/ratouch/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja"],
+        "expectedBundleIdentifier": "com.chrissotraidis.ratouch"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "RAtouch",
+          "developerName": "RAtouch contributors",
+          "subtitle": "Command and Conquer: Red Alert for iPhone and iPad",
+          "localizedDescription": "The original Red Alert simulation with a native touch command deck. The IPA contains no commercial game data; supply authorized files after installation.",
+          "category": "games",
+          "tintColor": "#9D302E",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/ratouch/8ecbc1890ee7ed2c05fb7897062b375b35ff0451/apple/ios/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0",
+            "sourceRevision": "8ecbc1890ee7ed2c05fb7897062b375b35ff0451",
+            "pageURL": "https://github.com/chrissotraidis/ratouch/releases/tag/v0.1.0",
+            "assetName": "RAtouch-v0.1.0-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/ratouch/releases/download/v0.1.0/RAtouch-v0.1.0-unsigned.ipa",
+            "publishedAt": "2026-08-08T11:38:51Z",
+            "size": 2596604,
+            "sha256": "0586c70ce6801e9cf3c967bf16b2a5ead2a78a398134d42c933526d4ca158041",
+            "versionDescription": "Project-owned RAtouch v0.1.0 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.ratouch",
+              "version": "0.1.0",
+              "buildVersion": "1",
+              "minimumOS": "15.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 100,
+              "maximumUncompressedSize": 20000000,
+              "forbiddenGameDataExtensions": ["mix", "vqa", "vqp", "aud", "shp", "wsa", "sav", "save", "iso", "rom"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "spaghettipad",
+      "name": "SpaghettiPad",
+      "repository": {
+        "slug": "chrissotraidis/spaghettipad",
+        "defaultBranch": "main",
+        "revision": "4f6bb0c6d5cef545f95384cde531ed3bc61127a6",
+        "checkoutDirectory": "spaghettipad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The project has a reproducible ROM-free unsigned IPA workflow."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "There is no broad repository-wide grant for independent mirroring."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/spaghettipad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net", "ripgrep"],
+        "expectedBundleIdentifier": "com.chrissotraidis.spaghettipad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "SpaghettiPad",
+          "developerName": "SpaghettiPad contributors",
+          "subtitle": "Mario Kart 64 rebuilt for iPhone and iPad",
+          "localizedDescription": "SpaghettiKart adapted for Metal, touch racing, controllers, and local multiplayer. The app is ROM-free and accepts authorized user data separately.",
+          "category": "games",
+          "tintColor": "#D9483B",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/spaghettipad/5786e6faa74487a8be7bdfe30d8b2bb2a7a54541/ios/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.3",
+            "sourceRevision": "5786e6faa74487a8be7bdfe30d8b2bb2a7a54541",
+            "pageURL": "https://github.com/chrissotraidis/spaghettipad/releases/tag/v0.1.0-preview.3",
+            "assetName": "SpaghettiPad-0.1.0-preview.3-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/spaghettipad/releases/download/v0.1.0-preview.3/SpaghettiPad-0.1.0-preview.3-unsigned.ipa",
+            "publishedAt": "2026-07-29T19:17:50Z",
+            "size": 11228922,
+            "sha256": "4b74433290c1dba54f5b4a31820c835fd826359ebd172fe0351c4115182c388b",
+            "versionDescription": "Project-owned SpaghettiPad preview 3 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.spaghettipad",
+              "version": "0.1.0",
+              "buildVersion": "3",
+              "minimumOS": "15.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 1000,
+              "maximumUncompressedSize": 60000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "starshippad",
+      "name": "StarshipPad",
+      "repository": {
+        "slug": "chrissotraidis/starshippad",
+        "defaultBranch": "main",
+        "revision": "6839f8d2a418843b01f837ceffa8e8159e644ae1",
+        "checkoutDirectory": "starshippad",
+        "checkoutPolicy": "default",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The project has a reproducible ROM-free unsigned IPA workflow."
+      },
+      "legal": {
+        "spdxExpression": "MIT AND CC0-1.0",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": true,
+        "note": "The clearest local-build candidate; retain the full dependency notices and exact source provenance."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/starshippad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libzip", "tinyxml2", "libogg", "libvorbis"],
+        "expectedBundleIdentifier": "com.chrissotraidis.starshippad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "StarshipPad",
+          "developerName": "StarshipPad contributors",
+          "subtitle": "Star Fox 64 rebuilt for iPhone and iPad",
+          "localizedDescription": "Starship adapted for native Metal rendering, touch flight controls, and Apple controllers. The app contains no ROM and imports authorized user data locally.",
+          "category": "games",
+          "tintColor": "#426D9A",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/starshippad/c327817de0d0e19bb6b323d8dbc73a0506ac5b9b/ios-assets/AppIcon.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "c327817de0d0e19bb6b323d8dbc73a0506ac5b9b",
+            "pageURL": "https://github.com/chrissotraidis/starshippad/releases/tag/v0.1.0-preview.2",
+            "assetName": "StarshipPad-v0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/starshippad/releases/download/v0.1.0-preview.2/StarshipPad-v0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-07-30T11:12:06Z",
+            "size": 6860211,
+            "sha256": "779d40f29f950023b36db6206f5e1ed4639a7252d5df2ae1e57a8a23b4f827a8",
+            "versionDescription": "Project-owned StarshipPad preview 2 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.starshippad",
+              "version": "0.1.0",
+              "buildVersion": "2",
+              "minimumOS": "16.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 30000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "vaultpad",
+      "name": "VaultPad",
+      "repository": {
+        "slug": "chrissotraidis/vaultpad",
+        "defaultBranch": "main",
+        "revision": "2de374463a0932fafc2acaf4881f40f32b9a6fc9",
+        "checkoutDirectory": "vaultpad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "buildRecipeReady",
+        "note": "The repository contains a device build, audit, and unsigned release package script."
+      },
+      "legal": {
+        "spdxExpression": "LicenseRef-Sustainable-Use",
+        "distributionReview": "conditionalRehost",
+        "rehostAllowed": true,
+        "note": "Any source must stay zero-price and noncommercial and retain the full notice set."
+      },
+      "build": {
+        "state": "ready",
+        "recipe": "recipes/vaultpad/build.sh",
+        "runner": "macos-15",
+        "brewPackages": ["cmake", "ninja"],
+        "expectedBundleIdentifier": "com.chrissotraidis.vaultpad"
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "centralRelease",
+        "exclusionReasons": ["nonCommercialReviewRequired", "artifactAuditRequired"],
+        "app": null,
+        "versions": []
+      }
+    }
+  ]
+}

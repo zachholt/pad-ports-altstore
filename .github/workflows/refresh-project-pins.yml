@@ -1,0 +1,133 @@
+name: Refresh project pins
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 11 * * 1"
+
+permissions: {}
+
+jobs:
+  audit:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.update.outputs.changed }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Validate and report new repositories and commits
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ./scripts/validate-catalog.sh
+          ./scripts/discover-repositories.sh --output .build/discovery-report.json
+          ./scripts/report-updates.sh --output .build/update-report.json
+          ./scripts/report-releases.sh --output .build/release-report.json
+
+      - name: Summarize discovery and release reports
+        run: |
+          {
+            echo "## Standalone project refresh"
+            echo ""
+            echo "- New matching repositories: $(jq '.additions | length' .build/discovery-report.json)"
+            echo "- Source-pin updates: $(jq '.updates | length' .build/update-report.json)"
+            echo "- New upstream releases: $(jq '.updates | length' .build/release-report.json)"
+            echo "- Upstream release alerts: $(jq '.alerts | length' .build/release-report.json)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Update source pins
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [[ "$(jq '.updates | length' .build/update-report.json)" -eq 0 ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ./scripts/update-project-pins.sh --all
+          ./scripts/validate-catalog.sh --verify-remote
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Stage validated pin update
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          mkdir -p .build/audited-pins
+          cp catalog/projects.json .build/audited-pins/projects.json
+          git rev-parse HEAD > .build/audited-pins/base-sha.txt
+
+      - name: Upload validated pin update
+        if: steps.update.outputs.changed == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: audited-project-pins
+          path: .build/audited-pins/
+          if-no-files-found: error
+          retention-days: 1
+
+  open-pull-request:
+    needs: audit
+    if: needs.audit.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Download validated pin update
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: audited-project-pins
+          path: .build/audited-pins
+
+      - name: Apply validated pin update
+        run: |
+          expected_base="$(cat .build/audited-pins/base-sha.txt)"
+          actual_base="$(git rev-parse HEAD)"
+          if [[ "$actual_base" != "$expected_base" ]]; then
+            echo "Default branch advanced during the audit; rerun this workflow." >&2
+            exit 1
+          fi
+          jq -e -n \
+            --slurpfile before catalog/projects.json \
+            --slurpfile after .build/audited-pins/projects.json '
+              ($before[0] | .projects |= map(.repository.revision = "REVIEWED_REVISION"))
+              == ($after[0] | .projects |= map(.repository.revision = "REVIEWED_REVISION"))
+            ' >/dev/null
+          cp .build/audited-pins/projects.json catalog/projects.json
+          ./scripts/validate-catalog.sh
+
+      - name: Open reviewed pin-update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing="$(gh pr list --state open --json headRefName,url --jq '.[] | select(.headRefName | startswith("automation/project-pins-")) | .url' | head -n 1)"
+          if [[ -n "$existing" ]]; then
+            echo "A pin-refresh pull request is already open: $existing"
+            exit 0
+          fi
+          branch="automation/project-pins-${GITHUB_RUN_ID}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch -c "$branch"
+          git add catalog/projects.json
+          git commit -m "chore: refresh standalone project pins"
+          gh auth setup-git
+          git push origin "$branch"
+          gh pr create \
+            --base "${{ github.event.repository.default_branch }}" \
+            --head "$branch" \
+            --title "chore: refresh standalone project pins" \
+            --body "Automated source-revision refresh. Review project changes and run the standalone build workflow before promoting any new release."

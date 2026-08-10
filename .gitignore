@@ -1,0 +1,12 @@
+.DS_Store
+.build/
+artifacts/
+upstreams/
+altstore/source.json
+catalog/account-repos.json
+catalog/build-report.json
+catalog/sync-report.json
+catalog/discovery-report.json
+catalog/update-report.json
+catalog/release-report.json
+site/

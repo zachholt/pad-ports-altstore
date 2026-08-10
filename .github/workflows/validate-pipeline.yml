@@ -1,0 +1,45 @@
+name: Validate pipeline
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  catalog-and-shell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Validate catalog, scripts, and recipe selection
+        run: |
+          bash -n scripts/*.sh recipes/*/build.sh
+          ./scripts/validate-catalog.sh
+          ./scripts/build-all.sh --dry-run
+
+  audited-source:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Download, audit, and generate the AltStore source
+        env:
+          PAD_PORTS_SOURCE_OUTPUT: .build/ci-source.json
+        run: ./scripts/generate-store-source.sh
+
+      - name: Validate generated source
+        run: |
+          jq -e '
+            (.apps | length) > 0
+            and (([.apps[].bundleIdentifier] | length) == ([.apps[].bundleIdentifier] | unique | length))
+            and all(.apps[]; (.versions | length) > 0)
+          ' .build/ci-source.json

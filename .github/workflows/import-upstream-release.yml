@@ -1,0 +1,136 @@
+name: Import upstream release
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: Eligible project ID from catalog/projects.json
+        required: true
+        type: string
+      tag:
+        description: Optional exact release tag; blank selects the newest single-IPA release
+        required: false
+        type: string
+
+permissions: {}
+
+jobs:
+  audit:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: macos-15
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Audit release and update catalog
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROJECT_ID: ${{ inputs.project }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          arguments=(--project "$PROJECT_ID")
+          if [[ -n "$RELEASE_TAG" ]]; then
+            arguments+=(--tag "$RELEASE_TAG")
+          fi
+          ./scripts/import-upstream-release.sh "${arguments[@]}"
+          ./scripts/generate-store-source.sh
+
+      - name: Stage validated catalog result
+        run: |
+          mkdir -p .build/audited-release
+          cp catalog/projects.json .build/audited-release/projects.json
+          git rev-parse HEAD > .build/audited-release/base-sha.txt
+
+      - name: Upload validated catalog result
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: audited-upstream-release-catalog
+          path: .build/audited-release/
+          if-no-files-found: error
+          retention-days: 1
+
+  open-pull-request:
+    needs: audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Download validated catalog result
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: audited-upstream-release-catalog
+          path: .build/audited-release
+
+      - name: Apply validated catalog result
+        env:
+          PROJECT_ID: ${{ inputs.project }}
+        run: |
+          expected_base="$(cat .build/audited-release/base-sha.txt)"
+          actual_base="$(git rev-parse HEAD)"
+          if [[ "$actual_base" != "$expected_base" ]]; then
+            echo "Default branch advanced during the audit; rerun this workflow." >&2
+            exit 1
+          fi
+          jq -e -n \
+            --slurpfile before catalog/projects.json \
+            --slurpfile after .build/audited-release/projects.json \
+            --arg id "$PROJECT_ID" '
+              ($before[0]) as $beforeCatalog
+              | ($after[0]) as $afterCatalog
+              | ($beforeCatalog.projects[] | select(.id == $id) | .altStore.versions) as $beforeVersions
+              | ($afterCatalog.projects[] | select(.id == $id) | .altStore.versions) as $afterVersions
+              | (($beforeCatalog | .projects |= map(select(.id != $id)))
+                  == ($afterCatalog | .projects |= map(select(.id != $id))))
+              and (($beforeCatalog.projects[] | select(.id == $id) | del(.altStore.versions))
+                  == ($afterCatalog.projects[] | select(.id == $id) | del(.altStore.versions)))
+              and (
+                ($afterVersions == $beforeVersions)
+                or (
+                  ($afterVersions | length) == (($beforeVersions | length) + 1)
+                  and all($beforeVersions[]; . as $version | any($afterVersions[]; . == $version))
+                )
+              )
+            ' >/dev/null
+          cp .build/audited-release/projects.json catalog/projects.json
+          ./scripts/validate-catalog.sh
+
+      - name: Open audited release pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROJECT_ID: ${{ inputs.project }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          if git diff --quiet -- catalog/projects.json; then
+            echo "The selected release is already cataloged."
+            exit 0
+          fi
+          branch="automation/upstream-release-${PROJECT_ID}-${GITHUB_RUN_ID}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch -c "$branch"
+          git add catalog/projects.json
+          git commit -m "chore: import ${PROJECT_ID} upstream release"
+          gh auth setup-git
+          git push origin "$branch"
+          tag_note="newest eligible release"
+          if [[ -n "$RELEASE_TAG" ]]; then
+            tag_note="release ${RELEASE_TAG}"
+          fi
+          gh pr create \
+            --base "${{ github.event.repository.default_branch }}" \
+            --head "$branch" \
+            --title "chore: import ${PROJECT_ID} upstream release" \
+            --body "Imports ${tag_note} for ${PROJECT_ID}. The downloaded IPA passed the catalog's architecture, device-platform, metadata, permission, archive, and game-data audit. Review the release notes and test the app on a physical device before merging."
