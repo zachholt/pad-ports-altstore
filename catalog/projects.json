@@ -513,6 +513,79 @@
       }
     },
     {
+      "id": "f0x",
+      "name": "F0X",
+      "repository": {
+        "slug": "chrissotraidis/f0x",
+        "defaultBranch": "main",
+        "revision": "5fb1de834429fb0c44bef29adf8cc3b8faef9738",
+        "checkoutDirectory": "f0x",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "auditedUpstreamArtifact",
+        "note": "The project publishes a ROM-free unsigned arm64 iPhone/iPad IPA with native Metal rendering and on-device authorized-ROM extraction."
+      },
+      "legal": {
+        "spdxExpression": "MIT AND CC0-1.0",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Direct-link only to the project-owned asset; retain its bundled component licenses and exact corresponding-source revisions."
+      },
+      "build": {
+        "state": "upstreamArtifact",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": "com.chrissotraidis.f0x"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "F0X",
+          "developerName": "F0X contributors",
+          "subtitle": "F-Zero X rebuilt for iPhone and iPad",
+          "localizedDescription": "A native source port with Metal rendering and customizable touch controls. The app contains no ROM; import your own authorized supported cartridge dump for private on-device extraction.",
+          "category": "games",
+          "tintColor": "#5E5CE6",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/f0x/5fb1de834429fb0c44bef29adf8cc3b8faef9738/assets/AppIcon.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.1",
+            "sourceRevision": "5fb1de834429fb0c44bef29adf8cc3b8faef9738",
+            "pageURL": "https://github.com/chrissotraidis/f0x/releases/tag/v0.1.0-preview.1",
+            "assetName": "F0X-0.1.0-preview.1-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/f0x/releases/download/v0.1.0-preview.1/F0X-0.1.0-preview.1-unsigned.ipa",
+            "publishedAt": "2026-08-15T16:27:45Z",
+            "size": 8790251,
+            "sha256": "e4e0f2f62b23a757cf0958d389ddfe433ceb0094ef36999d93bcc8bcbe136efd",
+            "versionDescription": "Project-owned F0X preview 1 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game data or signing material.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.f0x",
+              "version": "0.1.0",
+              "buildVersion": "0.1.0",
+              "minimumOS": "16.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 80000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "ndd", "sra", "eep", "fla", "sav", "srm"],
+              "forbiddenGameDataNames": ["fzerox.o2r"]
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "harkinianpad",
       "name": "HarkinianPad",
       "repository": {
@@ -726,6 +799,79 @@
         "exclusionReasons": ["portRequired", "noIOSArtifact"],
         "app": null,
         "versions": []
+      }
+    },
+    {
+      "id": "paperpad",
+      "name": "PaperPad",
+      "repository": {
+        "slug": "chrissotraidis/paperpad",
+        "defaultBranch": "main",
+        "revision": "74b6e45830a06c7f274c5ac1ddd7c625bc13a557",
+        "checkoutDirectory": "paperpad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "auditedUpstreamArtifact",
+        "note": "The project publishes a ROM-free unsigned arm64 iPhone/iPad IPA with Metal rendering and a private authorized-ROM import flow."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "The combined tree has mixed component grants; direct-link only to the project-owned asset and preserve its complete bundled notices and corresponding source."
+      },
+      "build": {
+        "state": "upstreamArtifact",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": "com.chrissotraidis.paperpad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "PaperPad",
+          "developerName": "PaperPad contributors",
+          "subtitle": "Paper Mario rebuilt for iPhone and iPad",
+          "localizedDescription": "A native static recompilation with Metal presentation, customizable touch controls, and controller support. The app contains no ROM; import your own authorized supported cartridge dump privately.",
+          "category": "games",
+          "tintColor": "#C34B62",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/paperpad/74b6e45830a06c7f274c5ac1ddd7c625bc13a557/apple/app/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "74b6e45830a06c7f274c5ac1ddd7c625bc13a557",
+            "pageURL": "https://github.com/chrissotraidis/paperpad/releases/tag/v0.1.0-preview.2",
+            "assetName": "PaperPad-v0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/paperpad/releases/download/v0.1.0-preview.2/PaperPad-v0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-08-16T08:10:41Z",
+            "size": 11605609,
+            "sha256": "ea908c33fce6ba883acadff3ccc3025a1a7ef0284947c09cf98f3602af84d029",
+            "versionDescription": "Project-owned PaperPad preview 2 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game data or signing material.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.paperpad",
+              "version": "0.1.0",
+              "buildVersion": "2",
+              "minimumOS": "15.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 50000000,
+              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "elf", "fla", "sav", "srm"],
+              "forbiddenGameDataNames": ["pm.n64.us.bin"]
+            }
+          }
+        ]
       }
     },
     {

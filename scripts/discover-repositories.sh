@@ -30,7 +30,16 @@ report_file="$(mktemp)"
 trap 'rm -f "$live_file" "$report_file"' EXIT
 
 gh api --paginate --slurp "users/$account_owner/repos?per_page=100&type=public&sort=full_name" \
-  | jq 'add | map(select((.name | ascii_downcase | endswith("pad")) or (.name | ascii_downcase | endswith("touch")))) | sort_by(.full_name | ascii_downcase)' \
+  | jq 'add
+    | map(select(
+        (.name | ascii_downcase | endswith("pad"))
+        or (.name | ascii_downcase | endswith("touch"))
+        or (
+          ((.description // "") | test("iPhone|iPad|iOS|iPadOS"; "i"))
+          and ((.description // "") | test("decomp|source port|static recompilation|native game"; "i"))
+        )
+      ))
+    | sort_by(.full_name | ascii_downcase)' \
   > "$live_file"
 
 jq -n --slurpfile catalog "$catalog_file" --slurpfile live "$live_file" '

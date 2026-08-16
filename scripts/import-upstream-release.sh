@@ -188,6 +188,17 @@ while IFS= read -r forbidden_extension; do
   fi
 done < <(jq -r '.forbiddenGameDataExtensions[]' <<<"$previous_audit")
 
+while IFS= read -r forbidden_name; do
+  if unzip -Z1 "$ipa_file" | awk -F/ -v name="$forbidden_name" '
+    BEGIN { IGNORECASE=1 }
+    $NF == name { found=1 }
+    END { exit found ? 0 : 1 }
+  '; then
+    echo "$project_id $release_tag contains forbidden game-data file $forbidden_name." >&2
+    exit 1
+  fi
+done < <(jq -r '.forbiddenGameDataNames[]?' <<<"$previous_audit")
+
 release_audit="$(jq -n \
   --arg bundleIdentifier "$(jq -r '.app.bundleIdentifier' "$audit_file")" \
   --arg version "$(jq -r '.app.version' "$audit_file")" \
@@ -203,6 +214,7 @@ release_audit="$(jq -n \
   --argjson maximumEntryCount "$maximum_entry_count" \
   --argjson maximumUncompressedSize "$maximum_uncompressed_size" \
   --argjson forbiddenGameDataExtensions "$(jq -c '.forbiddenGameDataExtensions' <<<"$previous_audit")" \
+  --argjson forbiddenGameDataNames "$(jq -c '.forbiddenGameDataNames // []' <<<"$previous_audit")" \
   '{
     bundleIdentifier: $bundleIdentifier,
     version: $version,
@@ -217,7 +229,8 @@ release_audit="$(jq -n \
     embeddedFrameworkCount: $embeddedFrameworkCount,
     maximumEntryCount: $maximumEntryCount,
     maximumUncompressedSize: $maximumUncompressedSize,
-    forbiddenGameDataExtensions: $forbiddenGameDataExtensions
+    forbiddenGameDataExtensions: $forbiddenGameDataExtensions,
+    forbiddenGameDataNames: $forbiddenGameDataNames
   }')"
 
 project_name="$(jq -r '.name' <<<"$project_json")"
