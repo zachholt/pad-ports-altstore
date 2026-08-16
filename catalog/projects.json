@@ -33,7 +33,10 @@
         "state": "ready",
         "recipe": "recipes/annepad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja"],
+        "brewPackages": [
+          "cmake",
+          "ninja"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.annepad"
       },
       "altStore": {
@@ -65,16 +68,32 @@
               "version": "0.1.0",
               "buildVersion": "1",
               "minimumOS": "16.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 100,
               "maximumUncompressedSize": 500000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -111,7 +130,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["noAuditedIPA", "distributionPermissionRequired"],
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "distributionPermissionRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -173,16 +195,32 @@
               "version": "0.1.0",
               "buildVersion": "1",
               "minimumOS": "16.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 500,
               "maximumUncompressedSize": 50000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -219,7 +257,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["noAuditedIPA", "distributionPermissionRequired"],
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "distributionPermissionRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -249,7 +290,19 @@
         "state": "ready",
         "recipe": "recipes/brawlerpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja", "pkgconf", "python@3.11", "sdl2", "glew", "nlohmann-json", "libzip", "tinyxml2", "libogg", "libvorbis"],
+        "brewPackages": [
+          "cmake",
+          "ninja",
+          "pkgconf",
+          "python@3.11",
+          "sdl2",
+          "glew",
+          "nlohmann-json",
+          "libzip",
+          "tinyxml2",
+          "libogg",
+          "libvorbis"
+        ],
         "expectedBundleIdentifier": "com.brawlerpad.app"
       },
       "altStore": {
@@ -281,16 +334,32 @@
               "version": "0.1.0",
               "buildVersion": "1",
               "minimumOS": "17.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 200,
               "maximumUncompressedSize": 50000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -321,13 +390,19 @@
         "state": "ready",
         "recipe": "recipes/caesarpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja"],
+        "brewPackages": [
+          "cmake",
+          "ninja"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.caesarpad"
       },
       "altStore": {
         "status": "excluded",
         "delivery": "centralRelease",
-        "exclusionReasons": ["releaseReviewRequired", "correspondingSourceRequired"],
+        "exclusionReasons": [
+          "releaseReviewRequired",
+          "correspondingSourceRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -357,13 +432,19 @@
         "state": "auditBlocked",
         "recipe": "recipes/ctrpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja"],
+        "brewPackages": [
+          "cmake",
+          "ninja"
+        ],
         "expectedBundleIdentifier": "io.github.chrissotraidis.ctrpad"
       },
       "altStore": {
         "status": "excluded",
         "delivery": "centralRelease",
-        "exclusionReasons": ["releaseReviewRequired", "correspondingSourceRequired"],
+        "exclusionReasons": [
+          "releaseReviewRequired",
+          "correspondingSourceRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -399,7 +480,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["manualUnityBuild", "distributionReviewRequired"],
+        "exclusionReasons": [
+          "manualUnityBuild",
+          "distributionReviewRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -435,7 +519,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["noAuditedIPA", "nonCommercialReviewRequired"],
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "nonCommercialReviewRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -497,16 +584,36 @@
               "version": "1.4.1",
               "buildVersion": "1.4.1.0",
               "minimumOS": "14.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 1000,
               "maximumUncompressedSize": 100000000,
-              "forbiddenGameDataExtensions": ["iso", "gcm", "rvz", "wia", "wbfs", "ciso", "gcz", "nfs", "tgc", "z64", "n64", "v64"]
+              "forbiddenGameDataExtensions": [
+                "iso",
+                "gcm",
+                "rvz",
+                "wia",
+                "wbfs",
+                "ciso",
+                "gcz",
+                "nfs",
+                "tgc",
+                "z64",
+                "n64",
+                "v64"
+              ]
             }
           }
         ]
@@ -569,17 +676,37 @@
               "version": "0.1.0",
               "buildVersion": "0.1.0",
               "minimumOS": "16.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 500,
               "maximumUncompressedSize": 80000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "ndd", "sra", "eep", "fla", "sav", "srm"],
-              "forbiddenGameDataNames": ["fzerox.o2r"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "ndd",
+                "sra",
+                "eep",
+                "fla",
+                "sav",
+                "srm"
+              ],
+              "forbiddenGameDataNames": [
+                "fzerox.o2r"
+              ]
             }
           }
         ]
@@ -610,7 +737,22 @@
         "state": "ready",
         "recipe": "recipes/harkinianpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net"],
+        "brewPackages": [
+          "cmake",
+          "ninja",
+          "pkgconf",
+          "sdl2",
+          "glew",
+          "nlohmann-json",
+          "libpng",
+          "libzip",
+          "tinyxml2",
+          "libogg",
+          "libvorbis",
+          "opus",
+          "opusfile",
+          "sdl2_net"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.harkinianpad"
       },
       "altStore": {
@@ -628,6 +770,50 @@
         },
         "versions": [
           {
+            "tag": "v0.1.0-preview.4",
+            "sourceRevision": "b2d18f7a6b3268a8329456990c60fe9becf4bf4e",
+            "pageURL": "https://github.com/chrissotraidis/harkinianpad/releases/tag/v0.1.0-preview.4",
+            "assetName": "HarkinianPad-0.1.0-preview.4-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/harkinianpad/releases/download/v0.1.0-preview.4/HarkinianPad-0.1.0-preview.4-unsigned.ipa",
+            "publishedAt": "2026-08-12T16:51:48Z",
+            "size": 30847409,
+            "sha256": "59f4837bd514b7329bd6b36b4e11e1dfa41658c325275ce007aff6c718108026",
+            "versionDescription": "Project-owned HarkinianPad v0.1.0-preview.4 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.harkinianpad",
+              "version": "0.1.0",
+              "buildVersion": "4",
+              "minimumOS": "14.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 12000,
+              "maximumUncompressedSize": 150000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
+          {
             "tag": "v0.1.0-preview.3",
             "sourceRevision": "d5283b107fe32a1406eb498d3531d88e966a5022",
             "pageURL": "https://github.com/chrissotraidis/harkinianpad/releases/tag/v0.1.0-preview.3",
@@ -642,16 +828,32 @@
               "version": "0.1.0",
               "buildVersion": "3",
               "minimumOS": "14.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 12000,
               "maximumUncompressedSize": 150000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -682,7 +884,22 @@
         "state": "ready",
         "recipe": "recipes/maskpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net"],
+        "brewPackages": [
+          "cmake",
+          "ninja",
+          "pkgconf",
+          "sdl2",
+          "glew",
+          "nlohmann-json",
+          "libpng",
+          "libzip",
+          "tinyxml2",
+          "libogg",
+          "libvorbis",
+          "opus",
+          "opusfile",
+          "sdl2_net"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.maskpad"
       },
       "altStore": {
@@ -700,6 +917,50 @@
         },
         "versions": [
           {
+            "tag": "v0.1.1",
+            "sourceRevision": "b59793df13d6962e6f594eae3aafd7a55d67c6fe",
+            "pageURL": "https://github.com/chrissotraidis/maskpad/releases/tag/v0.1.1",
+            "assetName": "MaskPad-0.1.1-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/maskpad/releases/download/v0.1.1/MaskPad-0.1.1-unsigned.ipa",
+            "publishedAt": "2026-08-12T20:19:48Z",
+            "size": 17503955,
+            "sha256": "5d3bf7d74b25b98cbc19c54824b2c47527b9702c866552efa1b722fe69deff4e",
+            "versionDescription": "Project-owned MaskPad v0.1.1 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.maskpad",
+              "version": "0.1.1",
+              "buildVersion": "2",
+              "minimumOS": "14.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 3000,
+              "maximumUncompressedSize": 100000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
+          {
             "tag": "v0.1.0",
             "sourceRevision": "a3dc94bf00f481a6f60cd9306493eebc824ca63c",
             "pageURL": "https://github.com/chrissotraidis/maskpad/releases/tag/v0.1.0",
@@ -714,16 +975,32 @@
               "version": "0.1.0",
               "buildVersion": "1",
               "minimumOS": "14.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 3000,
               "maximumUncompressedSize": 100000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -754,13 +1031,21 @@
         "state": "ready",
         "recipe": "recipes/openrct2touch/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["ccache", "cmake", "ninja", "pkgconf"],
+        "brewPackages": [
+          "ccache",
+          "cmake",
+          "ninja",
+          "pkgconf"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.openrct2touch"
       },
       "altStore": {
         "status": "excluded",
         "delivery": "centralRelease",
-        "exclusionReasons": ["physicalDeviceAcceptanceRequired", "correspondingSourceRequired"],
+        "exclusionReasons": [
+          "physicalDeviceAcceptanceRequired",
+          "correspondingSourceRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -796,7 +1081,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["portRequired", "noIOSArtifact"],
+        "exclusionReasons": [
+          "portRequired",
+          "noIOSArtifact"
+        ],
         "app": null,
         "versions": []
       }
@@ -858,17 +1146,35 @@
               "version": "0.1.0",
               "buildVersion": "2",
               "minimumOS": "15.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 500,
               "maximumUncompressedSize": 50000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "elf", "fla", "sav", "srm"],
-              "forbiddenGameDataNames": ["pm.n64.us.bin"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "elf",
+                "fla",
+                "sav",
+                "srm"
+              ],
+              "forbiddenGameDataNames": [
+                "pm.n64.us.bin"
+              ]
             }
           }
         ]
@@ -905,7 +1211,10 @@
       "altStore": {
         "status": "excluded",
         "delivery": "none",
-        "exclusionReasons": ["localTestOnly", "assetLicenseReviewRequired"],
+        "exclusionReasons": [
+          "localTestOnly",
+          "assetLicenseReviewRequired"
+        ],
         "app": null,
         "versions": []
       }
@@ -935,7 +1244,10 @@
         "state": "ready",
         "recipe": "recipes/ratouch/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja"],
+        "brewPackages": [
+          "cmake",
+          "ninja"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.ratouch"
       },
       "altStore": {
@@ -967,16 +1279,34 @@
               "version": "0.1.0",
               "buildVersion": "1",
               "minimumOS": "15.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 100,
               "maximumUncompressedSize": 20000000,
-              "forbiddenGameDataExtensions": ["mix", "vqa", "vqp", "aud", "shp", "wsa", "sav", "save", "iso", "rom"]
+              "forbiddenGameDataExtensions": [
+                "mix",
+                "vqa",
+                "vqp",
+                "aud",
+                "shp",
+                "wsa",
+                "sav",
+                "save",
+                "iso",
+                "rom"
+              ]
             }
           }
         ]
@@ -1007,7 +1337,23 @@
         "state": "ready",
         "recipe": "recipes/spaghettipad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libpng", "libzip", "tinyxml2", "libogg", "libvorbis", "opus", "opusfile", "sdl2_net", "ripgrep"],
+        "brewPackages": [
+          "cmake",
+          "ninja",
+          "pkgconf",
+          "sdl2",
+          "glew",
+          "nlohmann-json",
+          "libpng",
+          "libzip",
+          "tinyxml2",
+          "libogg",
+          "libvorbis",
+          "opus",
+          "opusfile",
+          "sdl2_net",
+          "ripgrep"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.spaghettipad"
       },
       "altStore": {
@@ -1039,16 +1385,32 @@
               "version": "0.1.0",
               "buildVersion": "3",
               "minimumOS": "15.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 1000,
               "maximumUncompressedSize": 60000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -1079,7 +1441,18 @@
         "state": "ready",
         "recipe": "recipes/starshippad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja", "pkgconf", "sdl2", "glew", "nlohmann-json", "libzip", "tinyxml2", "libogg", "libvorbis"],
+        "brewPackages": [
+          "cmake",
+          "ninja",
+          "pkgconf",
+          "sdl2",
+          "glew",
+          "nlohmann-json",
+          "libzip",
+          "tinyxml2",
+          "libogg",
+          "libvorbis"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.starshippad"
       },
       "altStore": {
@@ -1097,6 +1470,50 @@
         },
         "versions": [
           {
+            "tag": "v0.1.0-preview.3",
+            "sourceRevision": "ae4f58efbf974b824073242436bc75b147577d6a",
+            "pageURL": "https://github.com/chrissotraidis/starshippad/releases/tag/v0.1.0-preview.3",
+            "assetName": "StarshipPad-v0.1.0-preview.3-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/starshippad/releases/download/v0.1.0-preview.3/StarshipPad-v0.1.0-preview.3-unsigned.ipa",
+            "publishedAt": "2026-08-15T09:37:13Z",
+            "size": 6861115,
+            "sha256": "5b40c450fcf9ecdde765c643574e4f6c6235bf4fa205ada7a11f05f6294e7074",
+            "versionDescription": "Project-owned StarshipPad v0.1.0-preview.3 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.starshippad",
+              "version": "0.1.0",
+              "buildVersion": "3",
+              "minimumOS": "16.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 30000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
+          {
             "tag": "v0.1.0-preview.2",
             "sourceRevision": "c327817de0d0e19bb6b323d8dbc73a0506ac5b9b",
             "pageURL": "https://github.com/chrissotraidis/starshippad/releases/tag/v0.1.0-preview.2",
@@ -1111,16 +1528,32 @@
               "version": "0.1.0",
               "buildVersion": "2",
               "minimumOS": "16.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 1,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 500,
               "maximumUncompressedSize": 30000000,
-              "forbiddenGameDataExtensions": ["z64", "n64", "v64", "rom", "iso", "gcm", "rvz", "mpq"]
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ]
             }
           }
         ]
@@ -1183,16 +1616,37 @@
               "version": "0.1.0",
               "buildVersion": "3",
               "minimumOS": "16.0",
-              "deviceFamilies": [1, 2],
-              "architectures": ["arm64"],
-              "supportedPlatforms": ["iPhoneOS"],
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
               "entitlements": [],
               "privacy": {},
               "machOCount": 2,
               "embeddedFrameworkCount": 0,
               "maximumEntryCount": 5000,
               "maximumUncompressedSize": 200000000,
-              "forbiddenGameDataExtensions": ["iso", "gcm", "rvz", "wia", "wbfs", "ciso", "gcz", "nfs", "tgc", "gci", "sav", "raw", "rom"]
+              "forbiddenGameDataExtensions": [
+                "iso",
+                "gcm",
+                "rvz",
+                "wia",
+                "wbfs",
+                "ciso",
+                "gcz",
+                "nfs",
+                "tgc",
+                "gci",
+                "sav",
+                "raw",
+                "rom"
+              ]
             }
           }
         ]
@@ -1223,13 +1677,19 @@
         "state": "ready",
         "recipe": "recipes/vaultpad/build.sh",
         "runner": "macos-15",
-        "brewPackages": ["cmake", "ninja"],
+        "brewPackages": [
+          "cmake",
+          "ninja"
+        ],
         "expectedBundleIdentifier": "com.chrissotraidis.vaultpad"
       },
       "altStore": {
         "status": "excluded",
         "delivery": "centralRelease",
-        "exclusionReasons": ["nonCommercialReviewRequired", "artifactAuditRequired"],
+        "exclusionReasons": [
+          "nonCommercialReviewRequired",
+          "artifactAuditRequired"
+        ],
         "app": null,
         "versions": []
       }
