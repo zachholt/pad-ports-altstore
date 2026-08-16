@@ -981,6 +981,78 @@
       }
     },
     {
+      "id": "sunpad",
+      "name": "SunPad",
+      "repository": {
+        "slug": "chrissotraidis/sunpad",
+        "defaultBranch": "main",
+        "revision": "3f22b820270d3ff6939417db9ade4d31c87192a5",
+        "checkoutDirectory": "sunpad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "auditedUpstreamArtifact",
+        "note": "The project publishes an unsigned arm64 iPhone/iPad IPA with a Metal renderer and an in-app authorized-disc import flow."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0-or-later",
+        "distributionReview": "approvedForDirectLink",
+        "rehostAllowed": false,
+        "note": "Direct-link only to the project-owned asset and preserve the corresponding source, GPL license, and third-party notices."
+      },
+      "build": {
+        "state": "upstreamArtifact",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": "com.sunpad.SunPad"
+      },
+      "altStore": {
+        "status": "eligible",
+        "delivery": "upstreamRelease",
+        "exclusionReasons": [],
+        "app": {
+          "name": "SunPad",
+          "developerName": "SunPad contributors",
+          "subtitle": "Super Mario Sunshine rebuilt for iPhone and iPad",
+          "localizedDescription": "A native Metal iPhone and iPad port produced through static recompilation. The app contains no game image; import your own authorized supported disc image through Files after installation.",
+          "category": "games",
+          "tintColor": "#F0A51B",
+          "iconURL": "https://raw.githubusercontent.com/chrissotraidis/sunpad/3f22b820270d3ff6939417db9ade4d31c87192a5/apple/ios/Assets.xcassets/AppIcon.appiconset/AppIcon.png"
+        },
+        "versions": [
+          {
+            "tag": "v0.1.0-preview.4",
+            "sourceRevision": "3f22b820270d3ff6939417db9ade4d31c87192a5",
+            "pageURL": "https://github.com/chrissotraidis/sunpad/releases/tag/v0.1.0-preview.4",
+            "assetName": "SunPad-0.1.0-preview.4-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/sunpad/releases/download/v0.1.0-preview.4/SunPad-0.1.0-preview.4-unsigned.ipa",
+            "publishedAt": "2026-08-16T09:22:41Z",
+            "size": 25630540,
+            "sha256": "f88f419cc4800bc052fce2205e4177af2d3f6e37be707c4851546beeab3aa512",
+            "versionDescription": "Project-owned SunPad preview 4 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files or signing material.",
+            "audit": {
+              "bundleIdentifier": "com.sunpad.SunPad",
+              "version": "0.1.0",
+              "buildVersion": "3",
+              "minimumOS": "16.0",
+              "deviceFamilies": [1, 2],
+              "architectures": ["arm64"],
+              "supportedPlatforms": ["iPhoneOS"],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 2,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 5000,
+              "maximumUncompressedSize": 200000000,
+              "forbiddenGameDataExtensions": ["iso", "gcm", "rvz", "wia", "wbfs", "ciso", "gcz", "nfs", "tgc", "gci", "sav", "raw", "rom"]
+            }
+          }
+        ]
+      }
+    },
+    {
       "id": "vaultpad",
       "name": "VaultPad",
       "repository": {
