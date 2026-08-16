@@ -104,6 +104,10 @@ Use `--offline` only for a deliberately cache-only local audit.
   request for newer source commits. It never silently publishes them.
 - **Import upstream release** audits one project-owned release IPA and opens
   a catalog pull request; permission or packaging changes stop the import.
+- **Track upstream releases** runs daily without an AI model, imports every
+  same-policy release that passes the existing fail-closed audit, and opens one
+  review pull request. New projects and changed security or legal boundaries
+  still require manual approval.
 - **Build standalone apps** builds one selected recipe or the complete
   build-ready matrix on isolated macOS runners and uploads short-lived proof
   artifacts.

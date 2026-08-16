@@ -1,0 +1,180 @@
+name: Track upstream releases
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 12 * * *"
+
+concurrency:
+  group: track-upstream-releases
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  audit:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: macos-15
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      changed: ${{ steps.refresh.outputs.changed }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Check for a pending automated release pull request
+        id: pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pending_url="$(gh pr list \
+            --state open \
+            --json headRefName,url \
+            --jq '[.[] | select(.headRefName | startswith("automation/upstream-releases-"))][0].url // ""')"
+          echo "url=$pending_url" >> "$GITHUB_OUTPUT"
+
+      - name: Audit and import safe release updates
+        if: steps.pending.outputs.url == ''
+        id: refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ./scripts/refresh-upstream-releases.sh --output .build/release-refresh-summary.json
+          imported_count="$(jq '.imported | length' .build/release-refresh-summary.json)"
+          echo "changed=$([[ "$imported_count" -gt 0 ]] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Summarize release tracking
+        if: always()
+        env:
+          PENDING_URL: ${{ steps.pending.outputs.url }}
+        run: |
+          {
+            echo "## Upstream release tracker"
+            echo ""
+            if [[ -n "$PENDING_URL" ]]; then
+              echo "A prior automated release pull request is still open: $PENDING_URL"
+            elif [[ -f .build/release-refresh-summary.json ]]; then
+              echo "- Updates found: $(jq '.updateCount' .build/release-refresh-summary.json)"
+              echo "- Updates imported: $(jq '.imported | length' .build/release-refresh-summary.json)"
+              echo "- Updates skipped by audit or policy: $(jq '.skipped | length' .build/release-refresh-summary.json)"
+              echo "- Release alerts: $(jq '.alerts | length' .build/release-refresh-summary.json)"
+              jq -r '.skipped[] | "  - Skipped `\(.id)` `\(.tag)`: \(.reason)"' .build/release-refresh-summary.json
+              jq -r '.alerts[] | "  - Alert `\(.id)`: \(.state)"' .build/release-refresh-summary.json
+            else
+              echo "The tracker stopped before producing a report."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Stage audited release catalog
+        if: steps.refresh.outputs.changed == 'true'
+        run: |
+          mkdir -p .build/audited-releases
+          cp catalog/projects.json .build/audited-releases/projects.json
+          cp .build/release-refresh-summary.json .build/audited-releases/summary.json
+          git rev-parse HEAD > .build/audited-releases/base-sha.txt
+
+      - name: Upload audited release catalog
+        if: steps.refresh.outputs.changed == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: audited-upstream-releases
+          path: .build/audited-releases/
+          if-no-files-found: error
+          retention-days: 1
+
+  open-pull-request:
+    needs: audit
+    if: needs.audit.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Download audited release catalog
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: audited-upstream-releases
+          path: .build/audited-releases
+
+      - name: Apply constrained audited release updates
+        run: |
+          expected_base="$(cat .build/audited-releases/base-sha.txt)"
+          actual_base="$(git rev-parse HEAD)"
+          if [[ "$actual_base" != "$expected_base" ]]; then
+            echo "Default branch advanced during the audit; rerun this workflow." >&2
+            exit 1
+          fi
+
+          jq -e -n \
+            --slurpfile before catalog/projects.json \
+            --slurpfile after .build/audited-releases/projects.json \
+            --slurpfile summary .build/audited-releases/summary.json '
+              ($before[0]) as $beforeCatalog
+              | ($after[0]) as $afterCatalog
+              | ($summary[0].imported) as $imports
+              | ($imports | map(.id)) as $importIds
+              | ($importIds | length) > 0
+              and (($importIds | unique | length) == ($importIds | length))
+              and (($beforeCatalog | del(.projects)) == ($afterCatalog | del(.projects)))
+              and (($beforeCatalog.projects | map(.id) | sort) == ($afterCatalog.projects | map(.id) | sort))
+              and all($beforeCatalog.projects[];
+                . as $beforeProject
+                | ($afterCatalog.projects[] | select(.id == $beforeProject.id)) as $afterProject
+                | if ($importIds | index($beforeProject.id)) == null
+                  then $beforeProject == $afterProject
+                  else
+                    (($beforeProject | del(.altStore.versions)) == ($afterProject | del(.altStore.versions)))
+                    and (($afterProject.altStore.versions | length) == (($beforeProject.altStore.versions | length) + 1))
+                    and all($beforeProject.altStore.versions[];
+                      . as $version | any($afterProject.altStore.versions[]; . == $version))
+                  end)
+              and all($imports[];
+                . as $import | any($afterCatalog.projects[];
+                  .id == $import.id
+                  and any(.altStore.versions[]; .tag == $import.tag)))
+            ' >/dev/null
+
+          cp .build/audited-releases/projects.json catalog/projects.json
+          ./scripts/validate-catalog.sh
+
+      - name: Open audited release pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="automation/upstream-releases-${GITHUB_RUN_ID}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch -c "$branch"
+          git add catalog/projects.json
+          git commit -m "chore: import audited upstream releases"
+          gh auth setup-git
+          git push origin "$branch"
+
+          body_file=.build/upstream-release-pr.md
+          {
+            echo "Automated, fail-closed import of project-owned upstream release IPAs."
+            echo ""
+            echo "## Imported releases"
+            echo ""
+            jq -r '.imported[] | "- `\(.id)` → `\(.tag)`"' .build/audited-releases/summary.json
+            echo ""
+            echo "Every IPA was redownloaded, hash-pinned, and checked for architecture, iPhoneOS metadata, permissions, archive safety, signing material, and game data. Review upstream release notes and complete physical-device acceptance before merging."
+          } > "$body_file"
+
+          gh pr create \
+            --base "${{ github.event.repository.default_branch }}" \
+            --head "$branch" \
+            --title "chore: import audited upstream releases" \
+            --body-file "$body_file"

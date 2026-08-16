@@ -16,7 +16,7 @@ Every eligible version uses a tag-addressed GitHub Release URL and pins:
 - an exact arm64 architecture set and `iPhoneOS` Mach-O platform;
 - expected Mach-O inventory, entitlements, privacy declarations, and framework count;
 - bounded archive entry and expansion limits; and
-- project-specific forbidden game-data extensions.
+- project-specific forbidden game-data extensions and exact derived-data names.
 
 The auditor additionally rejects traversal paths, symlinks, nested apps and
 extensions, simulator slices, unexpected Mach-O files, existing code signatures,
@@ -51,6 +51,18 @@ For an entirely cached audit:
 ```sh
 ./scripts/generate-store-source.sh --offline
 ```
+
+## Scheduled release tracking
+
+The scheduled **Track upstream releases** workflow checks every eligible
+project once per day without an AI model. It imports a release only when the
+asset remains in the project-owned repository and preserves the reviewed bundle
+identifier, device families, arm64/iPhoneOS target, entitlements, privacy
+declarations, Mach-O inventory, archive bounds, and game-data exclusions.
+
+Safe updates are grouped into one review pull request after a full source
+regeneration. Failed or policy-changing candidates are reported but never
+published. New repositories remain on the discovery and manual-review path.
 
 ## GitHub Pages
 
