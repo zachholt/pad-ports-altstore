@@ -12,16 +12,16 @@ unsigned IPAs.
 
 ## Current inventory
 
-- 17 Pad/Touch projects from `chrissotraidis`, plus DuskLight and OpenGOAL.
-- All 19 repositories are pinned to exact 40-character commits in
+- 18 Pad/Touch projects from `chrissotraidis`, plus DuskLight and OpenGOAL.
+- All 20 repositories are pinned to exact 40-character commits in
   `catalog/projects.json` and available under ignored `upstreams/` checkouts.
 - 11 projects have automated local build recipes. Ten are in the normal build
   matrix; CTRPad remains available as a diagnostic recipe because its IPA is
   audit-blocked. Manual, Unity-only, and port-required projects remain visible.
-- Nine project-owned release IPAs currently pass the archive, arm64, iPhoneOS,
+- Ten project-owned release IPAs currently pass the archive, arm64, iPhoneOS,
   iPad-family, metadata, entitlement, privacy, nested-bundle, and recognized
   game-data checks: AnnePad, BearBirdPad, BrawlerPad, DuskLight, HarkinianPad,
-  MaskPad, RAtouch, SpaghettiPad, and StarshipPad.
+  MaskPad, RAtouch, SpaghettiPad, StarshipPad, and SunPad.
 - CTRPad has an IPA release, but the current artifact is excluded because its
   bundle does not declare `CFBundleSupportedPlatforms = [iPhoneOS]`.
 - Every included IPA is linked directly from a project-owned GitHub Release and
