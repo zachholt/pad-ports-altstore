@@ -98,6 +98,7 @@ jq -e '
           and (.audit.maximumEntryCount | type == "number" and . > 0)
           and (.audit.maximumUncompressedSize | type == "number" and . > 0)
           and (.audit.forbiddenGameDataExtensions | type == "array" and length > 0)
+          and ((.audit.forbiddenGameDataNames // []) | type == "array" and all(.[]; test("^[A-Za-z0-9._-]+$")))
         )
       end)
   )

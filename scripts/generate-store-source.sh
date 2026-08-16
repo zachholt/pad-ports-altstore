@@ -124,6 +124,17 @@ while IFS= read -r project; do
       fi
     done < <(jq -r '.forbiddenGameDataExtensions[]' <<<"$expected_audit")
 
+    while IFS= read -r forbidden_name; do
+      if unzip -Z1 "$ipa_file" | awk -F/ -v name="$forbidden_name" '
+        BEGIN { IGNORECASE=1 }
+        $NF == name { found=1 }
+        END { exit found ? 0 : 1 }
+      '; then
+        echo "$project_id contains forbidden game-data file $forbidden_name." >&2
+        exit 1
+      fi
+    done < <(jq -r '.forbiddenGameDataNames[]?' <<<"$expected_audit")
+
     version_json="$(jq -n \
       --arg version "$(jq -r '.version' <<<"$expected_audit")" \
       --arg buildVersion "$(jq -r '.buildVersion' <<<"$expected_audit")" \
