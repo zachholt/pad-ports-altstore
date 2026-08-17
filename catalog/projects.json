@@ -232,7 +232,7 @@
       "repository": {
         "slug": "chrissotraidis/bellpad",
         "defaultBranch": "main",
-        "revision": "2f09cdd66d9102ababc8d9d65420450235389be2",
+        "revision": "47bb2fd2c1c2bd7c38c25e3c210960ce4a5015e8",
         "checkoutDirectory": "bellpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -413,7 +413,7 @@
       "repository": {
         "slug": "chrissotraidis/ctrpad",
         "defaultBranch": "main",
-        "revision": "ef9c0059950b1c6cd78458612b3608e22bb987ed",
+        "revision": "d095cadfb62d4bddc5738f731104f00c81d3ec19",
         "checkoutDirectory": "ctrpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -533,7 +533,7 @@
       "repository": {
         "slug": "TwilitRealm/dusklight",
         "defaultBranch": "main",
-        "revision": "7434a0f834866294e7691bd86ab9527011265585",
+        "revision": "c880d46fb57ec81f9380422728b3f7d7ba56a4ef",
         "checkoutDirectory": "dusklight",
         "checkoutPolicy": "default",
         "submodules": "recursive"
@@ -718,7 +718,7 @@
       "repository": {
         "slug": "chrissotraidis/harkinianpad",
         "defaultBranch": "main",
-        "revision": "1197472956cd2c4dd3f03fb6fe5f2dfb28d30ad7",
+        "revision": "b2d18f7a6b3268a8329456990c60fe9becf4bf4e",
         "checkoutDirectory": "harkinianpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -865,7 +865,7 @@
       "repository": {
         "slug": "chrissotraidis/maskpad",
         "defaultBranch": "main",
-        "revision": "a3dc94bf00f481a6f60cd9306493eebc824ca63c",
+        "revision": "b59793df13d6962e6f594eae3aafd7a55d67c6fe",
         "checkoutDirectory": "maskpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -1056,7 +1056,7 @@
       "repository": {
         "slug": "open-goal/jak-project",
         "defaultBranch": "master",
-        "revision": "641fb572e876750d8618434d9f7c1a531b43b366",
+        "revision": "bfc4c18adac2784f01c7dfa3451499066c1e5033",
         "checkoutDirectory": "opengoal",
         "checkoutPolicy": "optIn",
         "submodules": "recipe"
@@ -1422,7 +1422,7 @@
       "repository": {
         "slug": "chrissotraidis/starshippad",
         "defaultBranch": "main",
-        "revision": "6839f8d2a418843b01f837ceffa8e8159e644ae1",
+        "revision": "ae4f58efbf974b824073242436bc75b147577d6a",
         "checkoutDirectory": "starshippad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
