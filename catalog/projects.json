@@ -54,6 +54,50 @@
         },
         "versions": [
           {
+            "tag": "v0.1.0-preview.3",
+            "sourceRevision": "65b8eb7ddfd6c067832600d684597d73ca6491ae",
+            "pageURL": "https://github.com/chrissotraidis/annepad/releases/tag/v0.1.0-preview.3",
+            "assetName": "AnnePad-0.1.0-preview.3-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/annepad/releases/download/v0.1.0-preview.3/AnnePad-0.1.0-preview.3-unsigned.ipa",
+            "publishedAt": "2026-08-18T18:40:10Z",
+            "size": 85343107,
+            "sha256": "aaff759f17f127e2bbfe2125f01f0f1effdf0640f76d332444f818fc6cadd85d",
+            "versionDescription": "Project-owned AnnePad v0.1.0-preview.3 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.annepad",
+              "version": "0.1.0",
+              "buildVersion": "3",
+              "minimumOS": "16.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 100,
+              "maximumUncompressedSize": 500000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
+          {
             "tag": "v0.1.0-preview.2",
             "sourceRevision": "73309971bbc250be4d50a43adbcdc64988e681de",
             "pageURL": "https://github.com/chrissotraidis/annepad/releases/tag/v0.1.0-preview.2",
@@ -180,6 +224,50 @@
           "iconURL": "https://raw.githubusercontent.com/chrissotraidis/bearbirdpad/2dabf37b980492a35a25d228ff5c06166f4677d1/ios/app/BearBirdPadIcon.png"
         },
         "versions": [
+          {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "984ee7401c2be171d963224013f6ff9c8b229ce3",
+            "pageURL": "https://github.com/chrissotraidis/bearbirdpad/releases/tag/v0.1.0-preview.2",
+            "assetName": "BearBirdPad-0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/bearbirdpad/releases/download/v0.1.0-preview.2/BearBirdPad-0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-08-18T18:15:47Z",
+            "size": 10112862,
+            "sha256": "8e39e264a6ef096661ed7e75eaa5028513e3091a20464197877d8e60b249bcf9",
+            "versionDescription": "Project-owned BearBirdPad v0.1.0-preview.2 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.bearbirdpad",
+              "version": "0.1.0",
+              "buildVersion": "2",
+              "minimumOS": "16.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 50000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v0.1.0-preview.1",
             "sourceRevision": "2dabf37b980492a35a25d228ff5c06166f4677d1",
@@ -319,6 +407,50 @@
           "iconURL": "https://raw.githubusercontent.com/chrissotraidis/brawlerpad/adb63026705f45a5710cc06ef1207222fd87ee8f/assets/ios/BrawlerPad.xcassets/AppIcon.appiconset/AppIcon.png"
         },
         "versions": [
+          {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "f6cb51bc114a6cf85a9d4bcb7c91914808319f56",
+            "pageURL": "https://github.com/chrissotraidis/brawlerpad/releases/tag/v0.1.0-preview.2",
+            "assetName": "BrawlerPad-0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/brawlerpad/releases/download/v0.1.0-preview.2/BrawlerPad-0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-08-18T18:54:29Z",
+            "size": 7087025,
+            "sha256": "67795d4f8a07641dde7d89102617c328bb3ea3aaa82f365efe544084fd2ea880",
+            "versionDescription": "Project-owned BrawlerPad v0.1.0-preview.2 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.brawlerpad.app",
+              "version": "0.1.0",
+              "buildVersion": "2",
+              "minimumOS": "17.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 200,
+              "maximumUncompressedSize": 50000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v0.1.0-preview.1",
             "sourceRevision": "adb63026705f45a5710cc06ef1207222fd87ee8f",
@@ -662,6 +794,54 @@
         },
         "versions": [
           {
+            "tag": "v0.1.0-preview.2",
+            "sourceRevision": "4fe33bafd35b63940131ac76bafa0e1e17f37490",
+            "pageURL": "https://github.com/chrissotraidis/f0x/releases/tag/v0.1.0-preview.2",
+            "assetName": "F0X-0.1.0-preview.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/f0x/releases/download/v0.1.0-preview.2/F0X-0.1.0-preview.2-unsigned.ipa",
+            "publishedAt": "2026-08-18T13:54:09Z",
+            "size": 4891647,
+            "sha256": "07b9e3bb5a47c894260b113c16629c6ac7cdbf2726d1e8398fc581490938479b",
+            "versionDescription": "Project-owned F0X v0.1.0-preview.2 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.f0x",
+              "version": "0.1.0",
+              "buildVersion": "2",
+              "minimumOS": "16.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 80000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "ndd",
+                "sra",
+                "eep",
+                "fla",
+                "sav",
+                "srm"
+              ],
+              "forbiddenGameDataNames": [
+                "fzerox.o2r"
+              ]
+            }
+          },
+          {
             "tag": "v0.1.0-preview.1",
             "sourceRevision": "5fb1de834429fb0c44bef29adf8cc3b8faef9738",
             "pageURL": "https://github.com/chrissotraidis/f0x/releases/tag/v0.1.0-preview.1",
@@ -769,6 +949,50 @@
           "iconURL": "https://raw.githubusercontent.com/chrissotraidis/harkinianpad/d5283b107fe32a1406eb498d3531d88e966a5022/assets/AppIcon.appiconset/AppIcon.png"
         },
         "versions": [
+          {
+            "tag": "v0.1.0-preview.5",
+            "sourceRevision": "c5963066e888d45e71c16cb63bba1f9cc9329639",
+            "pageURL": "https://github.com/chrissotraidis/harkinianpad/releases/tag/v0.1.0-preview.5",
+            "assetName": "HarkinianPad-0.1.0-preview.5-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/harkinianpad/releases/download/v0.1.0-preview.5/HarkinianPad-0.1.0-preview.5-unsigned.ipa",
+            "publishedAt": "2026-08-18T15:52:22Z",
+            "size": 30823149,
+            "sha256": "f505c0837a984f881d158ef3524f53d476a778e6351afabff49b611bbf47cef2",
+            "versionDescription": "Project-owned HarkinianPad v0.1.0-preview.5 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.harkinianpad",
+              "version": "0.1.0",
+              "buildVersion": "5",
+              "minimumOS": "14.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 12000,
+              "maximumUncompressedSize": 150000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v0.1.0-preview.4",
             "sourceRevision": "b2d18f7a6b3268a8329456990c60fe9becf4bf4e",
@@ -916,6 +1140,50 @@
           "iconURL": "https://raw.githubusercontent.com/chrissotraidis/maskpad/a3dc94bf00f481a6f60cd9306493eebc824ca63c/ios/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
         },
         "versions": [
+          {
+            "tag": "v0.1.2",
+            "sourceRevision": "34da600f75536182d086018cf70302874d57ce54",
+            "pageURL": "https://github.com/chrissotraidis/maskpad/releases/tag/v0.1.2",
+            "assetName": "MaskPad-0.1.2-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/maskpad/releases/download/v0.1.2/MaskPad-0.1.2-unsigned.ipa",
+            "publishedAt": "2026-08-18T17:08:21Z",
+            "size": 17511550,
+            "sha256": "5249be1d4036cb0104e30b28927502a3664ba86ccfa2d31579459c86e0af19f6",
+            "versionDescription": "Project-owned MaskPad v0.1.2 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.maskpad",
+              "version": "0.1.2",
+              "buildVersion": "3",
+              "minimumOS": "14.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 3000,
+              "maximumUncompressedSize": 100000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v0.1.1",
             "sourceRevision": "b59793df13d6962e6f594eae3aafd7a55d67c6fe",
@@ -1371,6 +1639,50 @@
         },
         "versions": [
           {
+            "tag": "v0.1.0-preview.4",
+            "sourceRevision": "2f7a54ee16a55c5c394c5907e83ab0ad7d3c66e3",
+            "pageURL": "https://github.com/chrissotraidis/spaghettipad/releases/tag/v0.1.0-preview.4",
+            "assetName": "SpaghettiPad-0.1.0-preview.4-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/spaghettipad/releases/download/v0.1.0-preview.4/SpaghettiPad-0.1.0-preview.4-unsigned.ipa",
+            "publishedAt": "2026-08-18T18:57:18Z",
+            "size": 11136437,
+            "sha256": "61cd25268e98d2e638d1d94c5a3486ffb64b81ed4cb572fe60a12c5b97eadf69",
+            "versionDescription": "Project-owned SpaghettiPad v0.1.0-preview.4 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.spaghettipad",
+              "version": "0.1.0",
+              "buildVersion": "4",
+              "minimumOS": "15.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 1000,
+              "maximumUncompressedSize": 60000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
+          {
             "tag": "v0.1.0-preview.3",
             "sourceRevision": "5786e6faa74487a8be7bdfe30d8b2bb2a7a54541",
             "pageURL": "https://github.com/chrissotraidis/spaghettipad/releases/tag/v0.1.0-preview.3",
@@ -1469,6 +1781,50 @@
           "iconURL": "https://raw.githubusercontent.com/chrissotraidis/starshippad/c327817de0d0e19bb6b323d8dbc73a0506ac5b9b/ios-assets/AppIcon.png"
         },
         "versions": [
+          {
+            "tag": "v0.1.0-preview.5",
+            "sourceRevision": "85264ad4e58b9556e917e813c34a73dbebcf58b9",
+            "pageURL": "https://github.com/chrissotraidis/starshippad/releases/tag/v0.1.0-preview.5",
+            "assetName": "StarshipPad-v0.1.0-preview.5-unsigned.ipa",
+            "downloadURL": "https://github.com/chrissotraidis/starshippad/releases/download/v0.1.0-preview.5/StarshipPad-v0.1.0-preview.5-unsigned.ipa",
+            "publishedAt": "2026-08-18T16:40:29Z",
+            "size": 6869652,
+            "sha256": "a57ed4bd149e8cfaf791b620681c69aeb32371d79d7242c18845832c65b57892",
+            "versionDescription": "Project-owned StarshipPad v0.1.0-preview.5 IPA, audited as a ROM-free arm64 iPhoneOS build.",
+            "audit": {
+              "bundleIdentifier": "com.chrissotraidis.starshippad",
+              "version": "0.1.0",
+              "buildVersion": "5",
+              "minimumOS": "16.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {},
+              "machOCount": 1,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 500,
+              "maximumUncompressedSize": 30000000,
+              "forbiddenGameDataExtensions": [
+                "z64",
+                "n64",
+                "v64",
+                "rom",
+                "iso",
+                "gcm",
+                "rvz",
+                "mpq"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v0.1.0-preview.3",
             "sourceRevision": "ae4f58efbf974b824073242436bc75b147577d6a",
