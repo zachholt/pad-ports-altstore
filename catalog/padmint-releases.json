@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-03",
+  "projects": [
+    {
+      "projectId": "agepad",
+      "repository": "chrissotraidis/agepad",
+      "tag": "v0.1.0",
+      "sourceRevision": "e622edd4a66d98adcac5b185a569e8bafed65a89",
+      "publishedAt": "2026-09-30T13:41:41Z",
+      "releaseURL": "https://github.com/chrissotraidis/agepad/releases/tag/v0.1.0",
+      "recipe": {
+        "assetName": "AgePad-v0.1.0-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/agepad/releases/download/v0.1.0/AgePad-v0.1.0-padmint.json",
+        "size": 2389,
+        "sha256": "b44a91c94bfed450abc744afe6b674496488d62745616a949b84c91d15e23df7"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "PadMint creates a private iPad app using the user’s Steam copy; Steam account-safety review remains open.",
+      "publicIPATemplate": {
+        "assetName": "AgePad-v0.1.0-ios-unsigned.ipa",
+        "downloadURL": "https://github.com/chrissotraidis/agepad/releases/download/v0.1.0/AgePad-v0.1.0-ios-unsigned.ipa",
+        "size": 1135945,
+        "sha256": "a03b8f133a6cf4c26f1d23354ca7aa380d51b6ad73d4b588a227f54ef080b502",
+        "containsPlayableGameCode": false
+      }
+    },
+    {
+      "projectId": "ballpad",
+      "repository": "chrissotraidis/ballpad",
+      "tag": "v1.1.1",
+      "sourceRevision": "979cc5a64b9936c39b263193c59cb843814568ea",
+      "publishedAt": "2026-09-30T20:43:28Z",
+      "releaseURL": "https://github.com/chrissotraidis/ballpad/releases/tag/v1.1.1",
+      "recipe": {
+        "assetName": "BallPad-v1.1.1-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/ballpad/releases/download/v1.1.1/BallPad-v1.1.1-padmint.json",
+        "size": 2337,
+        "sha256": "9b44aa72a2bf098810cd61e337792ef0cdf3c95da5660ab87264199198900533"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "PadMint recipe only; no public IPA in this release."
+    },
+    {
+      "projectId": "bananapad",
+      "repository": "chrissotraidis/bananapad",
+      "tag": "v0.2.1",
+      "sourceRevision": "d6be62fa13994c922d76a694813a59ebd4ebadf7",
+      "publishedAt": "2026-09-30T20:43:59Z",
+      "releaseURL": "https://github.com/chrissotraidis/bananapad/releases/tag/v0.2.1",
+      "recipe": {
+        "assetName": "BananaPad-v0.2.1-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/bananapad/releases/download/v0.2.1/BananaPad-v0.2.1-padmint.json",
+        "size": 3035,
+        "sha256": "dceea83bd11004aff1f0dca431c30554cacd69d1f15eb7248f09aa65cb973e98"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "PadMint recipe only; users generate the app locally from their own ROM."
+    },
+    {
+      "projectId": "dinopad",
+      "repository": "chrissotraidis/dinopad",
+      "tag": "v0.2.0",
+      "sourceRevision": "10c936d6db10c849838446e9c415d45655d54f55",
+      "publishedAt": "2026-09-29T22:47:15Z",
+      "releaseURL": "https://github.com/chrissotraidis/dinopad/releases/tag/v0.2.0",
+      "recipe": {
+        "assetName": "DinoPad-v0.2.0-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/dinopad/releases/download/v0.2.0/DinoPad-v0.2.0-padmint.json",
+        "size": 3691,
+        "sha256": "c0153d35a2878d0d886ada1d6dca0d4d5441823d039e91f3e72578d375d7df0d"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "PadMint recipe only; generated playable app is private."
+    },
+    {
+      "projectId": "goldenpad",
+      "repository": "chrissotraidis/goldenpad",
+      "tag": "v0.2.2",
+      "sourceRevision": "df1f9a48ad1ca29e0d9aa3c5377548649b120260",
+      "publishedAt": "2026-09-30T18:19:56Z",
+      "releaseURL": "https://github.com/chrissotraidis/goldenpad/releases/tag/v0.2.2",
+      "recipe": {
+        "assetName": "GoldenPad-v0.2.2-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/goldenpad/releases/download/v0.2.2/GoldenPad-v0.2.2-padmint.json",
+        "size": 3305,
+        "sha256": "4be5adf1ef8c3a088af8c094fa1d85157e3e96174cbc8c68389f2735102e9a34"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "PadMint recipe only; users generate their own app from their own ROM."
+    },
+    {
+      "projectId": "kartpad",
+      "repository": "chrissotraidis/kartpad",
+      "tag": "v0.7.8",
+      "sourceRevision": "c6d4b1a74cd702dbaaee6222ef906b948c45f0b4",
+      "publishedAt": "2026-10-03T13:12:17Z",
+      "releaseURL": "https://github.com/chrissotraidis/kartpad/releases/tag/v0.7.8",
+      "recipe": {
+        "assetName": "KartPad-v0.7.8-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/kartpad/releases/download/v0.7.8/KartPad-v0.7.8-padmint.json",
+        "size": 5985,
+        "sha256": "34017116eb67aed7178770ff218c3a7df2920ae4f0eca569b4c7575dc1420a1a"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "Public IPA is a non-playable shell. PadMint adds the private game pack; install PadMint output.",
+      "publicIPATemplate": {
+        "assetName": "KartPad-v0.7.8-ios-unsigned.ipa",
+        "downloadURL": "https://github.com/chrissotraidis/kartpad/releases/download/v0.7.8/KartPad-v0.7.8-ios-unsigned.ipa",
+        "size": 8633787,
+        "sha256": "d875c6360eacc68b9deb29f95733680326ca45f3e736f66a3ffa9d0016ac8a60",
+        "containsPlayableGameCode": false
+      }
+    },
+    {
+      "projectId": "meleepad",
+      "repository": "chrissotraidis/meleepad",
+      "tag": "v0.2.1",
+      "sourceRevision": "8bf86d7c4d2b7fcf95b0724a7230b30f33c8f43a",
+      "publishedAt": "2026-09-30T20:43:00Z",
+      "releaseURL": "https://github.com/chrissotraidis/meleepad/releases/tag/v0.2.1",
+      "recipe": {
+        "assetName": "MeleePad-v0.2.1-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/meleepad/releases/download/v0.2.1/MeleePad-v0.2.1-padmint.json",
+        "size": 3082,
+        "sha256": "29010eb22829abb0bb3f705f96528f4cbc5fbf3aed04af633b36bc7073715346"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "Public IPA is a non-playable shell. PadMint generates and adds the private game module from the user’s disc.",
+      "publicIPATemplate": {
+        "assetName": "MeleePad-v0.2.1-ios-unsigned.ipa",
+        "downloadURL": "https://github.com/chrissotraidis/meleepad/releases/download/v0.2.1/MeleePad-v0.2.1-ios-unsigned.ipa",
+        "size": 15739652,
+        "sha256": "91201954d5b396246c1d25df750e79fab17647124b0f2fbde99353efb1415a92",
+        "containsPlayableGameCode": false
+      }
+    },
+    {
+      "projectId": "sunpad",
+      "repository": "chrissotraidis/sunpad",
+      "tag": "v0.2.0",
+      "sourceRevision": "30d5edd9ea26071f5b6383aac35e2d6656b14e7d",
+      "publishedAt": "2026-09-29T22:36:39Z",
+      "releaseURL": "https://github.com/chrissotraidis/sunpad/releases/tag/v0.2.0",
+      "recipe": {
+        "assetName": "SunPad-v0.2.0-padmint.json",
+        "downloadURL": "https://github.com/chrissotraidis/sunpad/releases/download/v0.2.0/SunPad-v0.2.0-padmint.json",
+        "size": 2656,
+        "sha256": "4e79d341a140bd584204e41ca740b85d001a54e4eb25a3c1489065fae5afa4bb"
+      },
+      "playableIPAAvailableInRelease": false,
+      "note": "Public IPA is a shell; PadMint translates the user-owned disc and adds private game code before installation.",
+      "publicIPATemplate": {
+        "assetName": "SunPad-v0.2.0-ios-unsigned.ipa",
+        "downloadURL": "https://github.com/chrissotraidis/sunpad/releases/download/v0.2.0/SunPad-v0.2.0-ios-unsigned.ipa",
+        "size": 12259719,
+        "sha256": "b2283392c6e340157ed7075c1ae1bd9ba099e322fabb59643b467d68dbc1486c",
+        "containsPlayableGameCode": false
+      }
+    }
+  ]
+}

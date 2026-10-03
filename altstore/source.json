@@ -1,0 +1,73 @@
+{
+  "name": "Pad Ports",
+  "subtitle": "Audited iPhone and iPad game ports",
+  "description": "Audited iPhone and iPad apps linked from project-owned releases; import or build your own game data where the project requires it.",
+  "tintColor": "#5856D6",
+  "apps": [
+    {
+      "name": "DuskLight",
+      "bundleIdentifier": "dev.twilitrealm.dusk",
+      "developerName": "TwilitRealm contributors",
+      "subtitle": "Twilight Princess rebuilt for iPhone and iPad",
+      "localizedDescription": "A reverse-engineered GameCube engine with an iOS arm64 build backed by Metal. Supply your own authorized supported disc image inside the app.",
+      "iconURL": "https://raw.githubusercontent.com/TwilitRealm/dusklight/f5642f307384bd4b7b7a09f690e391152445c815/res/icon.png",
+      "tintColor": "#5046B8",
+      "category": "games",
+      "versions": [
+        {
+          "version": "2.0.3",
+          "buildVersion": "2.0.3.0",
+          "date": "2026-09-30T07:06:44Z",
+          "localizedDescription": "Official DuskLight v2.0.3 iOS arm64 release. Its 77-entry IPA includes the cosmetics, Luau, and randomizer mods plus eight .bti texture resources; provenance of those texture resources is not established by the package audit.",
+          "downloadURL": "https://github.com/TwilitRealm/dusklight/releases/download/v2.0.3/Dusklight-v2.0.3-ios-arm64.ipa",
+          "size": 37056541,
+          "sha256": "33991d29234c990085689af61528722248becfffd4b9abd5d0cdd550ce68360b",
+          "minOSVersion": "14.0"
+        },
+        {
+          "version": "1.4.1",
+          "buildVersion": "1.4.1.0",
+          "date": "2026-06-16T22:33:28Z",
+          "localizedDescription": "Official upstream DuskLight v1.4.1 iOS arm64 release. No recognized game-image files were found in the audited artifact.",
+          "downloadURL": "https://github.com/TwilitRealm/dusklight/releases/download/v1.4.1/Dusklight-v1.4.1-ios-arm64.ipa",
+          "size": 27125007,
+          "sha256": "abe2265bfc099f9cacb3cb8cebcb8b9914d0384ee256a3e82bd5d5494d9a04ca",
+          "minOSVersion": "14.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSLocalNetworkUsageDescription": "Dusklight allows network-enabled mods to connect to devices on your local network."
+        }
+      }
+    },
+    {
+      "name": "RAtouch",
+      "bundleIdentifier": "com.chrissotraidis.ratouch",
+      "developerName": "RAtouch contributors",
+      "subtitle": "Command and Conquer: Red Alert for iPhone and iPad",
+      "localizedDescription": "The original Red Alert simulation with a native touch command deck. The IPA contains no commercial game data; supply authorized files after installation.",
+      "iconURL": "https://raw.githubusercontent.com/chrissotraidis/ratouch/8ecbc1890ee7ed2c05fb7897062b375b35ff0451/apple/ios/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png",
+      "tintColor": "#9D302E",
+      "category": "games",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "buildVersion": "1",
+          "date": "2026-08-08T11:38:51Z",
+          "localizedDescription": "Project-owned RAtouch v0.1.0 unsigned arm64 IPA, audited as an iPhoneOS build with no recognized game-data files.",
+          "downloadURL": "https://github.com/chrissotraidis/ratouch/releases/download/v0.1.0/RAtouch-v0.1.0-unsigned.ipa",
+          "size": 2596604,
+          "sha256": "0586c70ce6801e9cf3c967bf16b2a5ead2a78a398134d42c933526d4ca158041",
+          "minOSVersion": "15.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": []
+}

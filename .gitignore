@@ -2,7 +2,6 @@
 .build/
 artifacts/
 upstreams/
-altstore/source.json
 catalog/account-repos.json
 catalog/build-report.json
 catalog/sync-report.json
