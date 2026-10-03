@@ -4,17 +4,55 @@
   "source": {
     "name": "Pad Ports",
     "subtitle": "Audited iPhone and iPad game ports",
-    "description": "Standalone, ROM-free iPhone and iPad ports linked from hash-pinned GitHub releases.",
+    "description": "Audited iPhone and iPad apps linked from project-owned releases; import or build your own game data where the project requires it.",
     "tintColor": "#5856D6"
   },
   "projects": [
+    {
+      "id": "agepad",
+      "name": "AgePad",
+      "repository": {
+        "slug": "chrissotraidis/agepad",
+        "defaultBranch": "main",
+        "revision": "e0f8cf0cebceb621e671c04945a899be24e099a3",
+        "checkoutDirectory": "agepad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "A public IPA exists, but the README warns that Steam compatibility/account safety are unconfirmed and describes modifying local Steam client/SDK files."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "A public IPA exists, but the README warns that Steam compatibility/account safety are unconfirmed and describes modifying local Steam client/SDK files."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "licenseAndSteamIntegrationReviewRequired"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
     {
       "id": "annepad",
       "name": "AnnePad",
       "repository": {
         "slug": "chrissotraidis/annepad",
         "defaultBranch": "main",
-        "revision": "73309971bbc250be4d50a43adbcdc64988e681de",
+        "revision": "3f476142b88655d56eb04972f1db2cb65fc42b20",
         "checkoutDirectory": "annepad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -40,9 +78,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.annepad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "AnnePad",
           "developerName": "AnnePad contributors",
@@ -100,12 +140,90 @@
       }
     },
     {
+      "id": "ballpad",
+      "name": "BallPad",
+      "repository": {
+        "slug": "chrissotraidis/ballpad",
+        "defaultBranch": "main",
+        "revision": "9dea0fe233061d61ee0dfbac82849d4f126c8199",
+        "checkoutDirectory": "ballpad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "Current public release contains a PadMint recipe, not an installable IPA; PadMint builds a private app from user-supplied game data."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "bananapad",
+      "name": "BananaPad",
+      "repository": {
+        "slug": "chrissotraidis/bananapad",
+        "defaultBranch": "main",
+        "revision": "6d2985de0811c352ab9fd885bb838555234bca83",
+        "checkoutDirectory": "bananapad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "Current public release contains a PadMint recipe only; users generate their own app from their own Donkey Kong 64 ROM."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "barrelpad",
       "name": "BarrelPad",
       "repository": {
         "slug": "chrissotraidis/barrelpad",
         "defaultBranch": "main",
-        "revision": "a71b95c56282ba4d595ae741081f5fa9601f785a",
+        "revision": "e05f8820d9b156a23ce4745417335cb69e25394a",
         "checkoutDirectory": "barrelpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -144,7 +262,7 @@
       "repository": {
         "slug": "chrissotraidis/bearbirdpad",
         "defaultBranch": "main",
-        "revision": "4de35cdfdeec727e47d461ebcd74b687a1194ae0",
+        "revision": "e29350e4b12603599c357f736586be00d9492617",
         "checkoutDirectory": "bearbirdpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -167,9 +285,11 @@
         "expectedBundleIdentifier": null
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "BearBirdPad",
           "developerName": "BearBirdPad contributors",
@@ -232,7 +352,7 @@
       "repository": {
         "slug": "chrissotraidis/bellpad",
         "defaultBranch": "main",
-        "revision": "2f09cdd66d9102ababc8d9d65420450235389be2",
+        "revision": "81ba9264645180eb2899a2077735ccc1a22980bf",
         "checkoutDirectory": "bellpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -271,7 +391,7 @@
       "repository": {
         "slug": "chrissotraidis/brawlerpad",
         "defaultBranch": "main",
-        "revision": "580346325358a3bff1033f687b9176245eeca693",
+        "revision": "8ebde1f7c5fe913286d0a533c63cc7e660ad85b7",
         "checkoutDirectory": "brawlerpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -306,9 +426,11 @@
         "expectedBundleIdentifier": "com.brawlerpad.app"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "BrawlerPad",
           "developerName": "BrawlerPad contributors",
@@ -371,7 +493,7 @@
       "repository": {
         "slug": "chrissotraidis/caesarpad",
         "defaultBranch": "main",
-        "revision": "07a8d38a4eae77d01c6d980ecbc36de8fad97ef6",
+        "revision": "47ee7da4a4a2776cdea452e99ecf6dfc265527d5",
         "checkoutDirectory": "caesarpad",
         "checkoutPolicy": "default",
         "submodules": "recursive"
@@ -408,54 +530,12 @@
       }
     },
     {
-      "id": "ctrpad",
-      "name": "CTRPad",
-      "repository": {
-        "slug": "chrissotraidis/ctrpad",
-        "defaultBranch": "main",
-        "revision": "ef9c0059950b1c6cd78458612b3608e22bb987ed",
-        "checkoutDirectory": "ctrpad",
-        "checkoutPolicy": "default",
-        "submodules": "recipe"
-      },
-      "technical": {
-        "status": "auditBlocked",
-        "note": "The source compiles and packages, but the resulting IPA omits CFBundleSupportedPlatforms and fails the device-bundle audit."
-      },
-      "legal": {
-        "spdxExpression": "GPL-3.0-only",
-        "distributionReview": "conditionalRehost",
-        "rehostAllowed": true,
-        "note": "Publication requires the exact corresponding-source and notice artifacts beside the IPA."
-      },
-      "build": {
-        "state": "auditBlocked",
-        "recipe": "recipes/ctrpad/build.sh",
-        "runner": "macos-15",
-        "brewPackages": [
-          "cmake",
-          "ninja"
-        ],
-        "expectedBundleIdentifier": "io.github.chrissotraidis.ctrpad"
-      },
-      "altStore": {
-        "status": "excluded",
-        "delivery": "centralRelease",
-        "exclusionReasons": [
-          "releaseReviewRequired",
-          "correspondingSourceRequired"
-        ],
-        "app": null,
-        "versions": []
-      }
-    },
-    {
       "id": "daggerpad",
       "name": "DaggerPad",
       "repository": {
         "slug": "chrissotraidis/daggerpad",
         "defaultBranch": "main",
-        "revision": "3ec5ff8b25829b9f8e8f01f5adc9507721c3e24c",
+        "revision": "eab4a6931083027762b62f24f0b5ec0953786bda",
         "checkoutDirectory": "daggerpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -494,7 +574,7 @@
       "repository": {
         "slug": "chrissotraidis/deviltouch",
         "defaultBranch": "main",
-        "revision": "7f609ed22afc75fdfe4ff05f27e486e9bd14a253",
+        "revision": "83deaaab69772486980c1bdd4a72e4abb91f296b",
         "checkoutDirectory": "deviltouch",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -528,25 +608,64 @@
       }
     },
     {
+      "id": "dinopad",
+      "name": "DinoPad",
+      "repository": {
+        "slug": "chrissotraidis/dinopad",
+        "defaultBranch": "main",
+        "revision": "257e99df28197e11076d953ffc12048074e00a56",
+        "checkoutDirectory": "dinopad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "Current release contains a PadMint recipe only; historical public prototypes are not the playable game."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "dusklight",
       "name": "DuskLight",
       "repository": {
         "slug": "TwilitRealm/dusklight",
         "defaultBranch": "main",
-        "revision": "7434a0f834866294e7691bd86ab9527011265585",
+        "revision": "40457c6adb381928e4b5fef6ed459ed291edd5e2",
         "checkoutDirectory": "dusklight",
         "checkoutPolicy": "default",
         "submodules": "recursive"
       },
       "technical": {
         "status": "auditedUpstreamArtifact",
-        "note": "The official iOS 14 arm64 IPA uses a WebGPU-to-Metal path."
+        "note": "The v2.0.3 official iOS arm64 IPA passes package checks and adds a local-network usage purpose string. The package includes three upstream mods and eight .bti textures; the structural audit does not establish artwork provenance or prove absence of every copyrighted resource."
       },
       "legal": {
         "spdxExpression": "CC0-1.0",
         "distributionReview": "approvedForDirectLink",
         "rehostAllowed": false,
-        "note": "Link the hash-pinned upstream asset. Rehosting still requires dependency, artwork, and trademark review."
+        "note": "Direct-link only to the project-owned upstream release. v2.0.3 includes the upstream cosmetics, Luau, and randomizer mods plus eight .bti texture resources; the direct-link approval does not establish the provenance of each embedded artwork resource. Rehosting still requires dependency, artwork, and trademark review."
       },
       "build": {
         "state": "upstreamArtifact",
@@ -569,6 +688,56 @@
           "iconURL": "https://raw.githubusercontent.com/TwilitRealm/dusklight/f5642f307384bd4b7b7a09f690e391152445c815/res/icon.png"
         },
         "versions": [
+          {
+            "tag": "v2.0.3",
+            "sourceRevision": "40457c6adb381928e4b5fef6ed459ed291edd5e2",
+            "pageURL": "https://github.com/TwilitRealm/dusklight/releases/tag/v2.0.3",
+            "assetName": "Dusklight-v2.0.3-ios-arm64.ipa",
+            "downloadURL": "https://github.com/TwilitRealm/dusklight/releases/download/v2.0.3/Dusklight-v2.0.3-ios-arm64.ipa",
+            "publishedAt": "2026-09-30T07:06:44Z",
+            "size": 37056541,
+            "sha256": "33991d29234c990085689af61528722248becfffd4b9abd5d0cdd550ce68360b",
+            "versionDescription": "Official DuskLight v2.0.3 iOS arm64 release. Its 77-entry IPA includes the cosmetics, Luau, and randomizer mods plus eight .bti texture resources; provenance of those texture resources is not established by the package audit.",
+            "audit": {
+              "bundleIdentifier": "dev.twilitrealm.dusk",
+              "version": "2.0.3",
+              "buildVersion": "2.0.3.0",
+              "minimumOS": "14.0",
+              "deviceFamilies": [
+                1,
+                2
+              ],
+              "architectures": [
+                "arm64"
+              ],
+              "supportedPlatforms": [
+                "iPhoneOS"
+              ],
+              "entitlements": [],
+              "privacy": {
+                "NSLocalNetworkUsageDescription": "Dusklight allows network-enabled mods to connect to devices on your local network."
+              },
+              "machOCount": 4,
+              "embeddedFrameworkCount": 0,
+              "maximumEntryCount": 1000,
+              "maximumUncompressedSize": 100000000,
+              "forbiddenGameDataExtensions": [
+                "iso",
+                "gcm",
+                "rvz",
+                "wia",
+                "wbfs",
+                "ciso",
+                "gcz",
+                "nfs",
+                "tgc",
+                "z64",
+                "n64",
+                "v64"
+              ],
+              "forbiddenGameDataNames": []
+            }
+          },
           {
             "tag": "v1.4.1",
             "sourceRevision": "f5642f307384bd4b7b7a09f690e391152445c815",
@@ -620,12 +789,51 @@
       }
     },
     {
+      "id": "ectopad",
+      "name": "EctoPad",
+      "repository": {
+        "slug": "chrissotraidis/ectopad",
+        "defaultBranch": "main",
+        "revision": "1756c343c4d31705d0f721a22f58cc274405c063",
+        "checkoutDirectory": "ectopad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "No public release or IPA; source integrates Metaforce for Apple platforms."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "No public release or IPA; source integrates Metaforce for Apple platforms."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "distributionReviewRequired"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "f0x",
       "name": "F0X",
       "repository": {
         "slug": "chrissotraidis/f0x",
         "defaultBranch": "main",
-        "revision": "5fb1de834429fb0c44bef29adf8cc3b8faef9738",
+        "revision": "815901b6285dcbe2dc4001127363764b510e6d9e",
         "checkoutDirectory": "f0x",
         "checkoutPolicy": "default",
         "submodules": "none"
@@ -648,9 +856,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.f0x"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "F0X",
           "developerName": "F0X contributors",
@@ -713,12 +923,90 @@
       }
     },
     {
+      "id": "galaxypad",
+      "name": "GalaxyPad",
+      "repository": {
+        "slug": "chrissotraidis/galaxypad",
+        "defaultBranch": "main",
+        "revision": "0a81bb6fbd9e876027030e55e7998842dcf9eb8f",
+        "checkoutDirectory": "galaxypad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "No current public release; README says prior builds were retired and a new version is in progress."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "distributionReviewRequired"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "goldenpad",
+      "name": "GoldenPad",
+      "repository": {
+        "slug": "chrissotraidis/goldenpad",
+        "defaultBranch": "main",
+        "revision": "7e010acb15de46dcdcad176ae4e08bb02195ab65",
+        "checkoutDirectory": "goldenpad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "Current release is a PadMint recipe only; the user creates a private app from their own ROM."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "harkinianpad",
       "name": "HarkinianPad",
       "repository": {
         "slug": "chrissotraidis/harkinianpad",
         "defaultBranch": "main",
-        "revision": "1197472956cd2c4dd3f03fb6fe5f2dfb28d30ad7",
+        "revision": "73e5ae8936e208bbf7798bbb9d38ae35729cd36a",
         "checkoutDirectory": "harkinianpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -756,9 +1044,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.harkinianpad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "HarkinianPad",
           "developerName": "HarkinianPad contributors",
@@ -860,12 +1150,88 @@
       }
     },
     {
+      "id": "kartpad",
+      "name": "KartPad",
+      "repository": {
+        "slug": "chrissotraidis/kartpad",
+        "defaultBranch": "main",
+        "revision": "5108dd1595f6f6c1e23995afef92a802a08be971",
+        "checkoutDirectory": "kartpad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The v0.7.8 public IPA passes the package audit but is an app shell without game code; PadMint adds the user’s private game pack. Install PadMint output, not this IPA."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "kidpad",
+      "name": "KidPad",
+      "repository": {
+        "slug": "chrissotraidis/kidpad",
+        "defaultBranch": "main",
+        "revision": "bfff0d019bcd696271d78f1fc2b4c79bbd1bc7fd",
+        "checkoutDirectory": "kidpad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "A public IPA exists, but the project describes recreating Kid Pix with familiar artwork, sounds, stamps, and interactions; distribution rights need review."
+      },
+      "legal": {
+        "spdxExpression": "Apache-2.0",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "A public IPA exists, but the project describes recreating Kid Pix with familiar artwork, sounds, stamps, and interactions; distribution rights need review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "artworkDistributionReviewRequired"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "maskpad",
       "name": "MaskPad",
       "repository": {
         "slug": "chrissotraidis/maskpad",
         "defaultBranch": "main",
-        "revision": "a3dc94bf00f481a6f60cd9306493eebc824ca63c",
+        "revision": "4d9ff1d02c3c495e05e515adde1df5eddad6157e",
         "checkoutDirectory": "maskpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -903,9 +1269,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.maskpad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "MaskPad",
           "developerName": "MaskPad contributors",
@@ -1007,12 +1375,89 @@
       }
     },
     {
+      "id": "meleepad",
+      "name": "MeleePad",
+      "repository": {
+        "slug": "chrissotraidis/meleepad",
+        "defaultBranch": "main",
+        "revision": "83ecac323e9e2ffce44c2074470754e25f4a8eff",
+        "checkoutDirectory": "meleepad",
+        "checkoutPolicy": "default",
+        "submodules": "recursive"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The v0.2.1 public IPA passes the package audit but contains no game code; PadMint creates and adds a private module from the user’s Melee disc."
+      },
+      "legal": {
+        "spdxExpression": "GPL-3.0",
+        "distributionReview": "upstreamLinkOnly",
+        "rehostAllowed": false,
+        "note": "No rehosting approval. Keep any future release linked to the project owner after source, artwork, trademark, and game-data review."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "requiresLocalPadMintBuild"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
+      "id": "opengoal",
+      "name": "OpenGOAL",
+      "repository": {
+        "slug": "open-goal/jak-project",
+        "defaultBranch": "master",
+        "revision": "efb21c3e8c5a40a74f2e86510f915da55eaeba34",
+        "checkoutDirectory": "opengoal",
+        "checkoutPolicy": "optIn",
+        "submodules": "recipe"
+      },
+      "technical": {
+        "status": "portRequired",
+        "note": "There is no supported iOS target; ARM64 runtime, Metal rendering, extraction, and lifecycle work remain."
+      },
+      "legal": {
+        "spdxExpression": "ISC",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "The code license does not create an iOS artifact or grant rights to original game assets."
+      },
+      "build": {
+        "state": "none",
+        "recipe": null,
+        "runner": "macos-15",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "portRequired",
+          "noIOSArtifact"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "openrct2touch",
       "name": "OpenRCT2 Touch",
       "repository": {
         "slug": "chrissotraidis/OpenRCT2Touch",
         "defaultBranch": "ipad",
-        "revision": "35b9a82b3acc7caa466d97ac59b49c7836805d2f",
+        "revision": "02c65d105c6d4b3d83a3ebe309d7309e5a3baa56",
         "checkoutDirectory": "OpenRCT2Touch",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -1051,51 +1496,12 @@
       }
     },
     {
-      "id": "opengoal",
-      "name": "OpenGOAL",
-      "repository": {
-        "slug": "open-goal/jak-project",
-        "defaultBranch": "master",
-        "revision": "641fb572e876750d8618434d9f7c1a531b43b366",
-        "checkoutDirectory": "opengoal",
-        "checkoutPolicy": "optIn",
-        "submodules": "recipe"
-      },
-      "technical": {
-        "status": "portRequired",
-        "note": "There is no supported iOS target; ARM64 runtime, Metal rendering, extraction, and lifecycle work remain."
-      },
-      "legal": {
-        "spdxExpression": "ISC",
-        "distributionReview": "blocked",
-        "rehostAllowed": false,
-        "note": "The code license does not create an iOS artifact or grant rights to original game assets."
-      },
-      "build": {
-        "state": "none",
-        "recipe": null,
-        "runner": "macos-15",
-        "brewPackages": [],
-        "expectedBundleIdentifier": null
-      },
-      "altStore": {
-        "status": "excluded",
-        "delivery": "none",
-        "exclusionReasons": [
-          "portRequired",
-          "noIOSArtifact"
-        ],
-        "app": null,
-        "versions": []
-      }
-    },
-    {
       "id": "paperpad",
       "name": "PaperPad",
       "repository": {
         "slug": "chrissotraidis/paperpad",
         "defaultBranch": "main",
-        "revision": "74b6e45830a06c7f274c5ac1ddd7c625bc13a557",
+        "revision": "8fef72b50d6dafe1ebc0931b82b388c33b7112af",
         "checkoutDirectory": "paperpad",
         "checkoutPolicy": "default",
         "submodules": "none"
@@ -1118,9 +1524,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.paperpad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "PaperPad",
           "developerName": "PaperPad contributors",
@@ -1186,7 +1594,7 @@
       "repository": {
         "slug": "chrissotraidis/peonpad",
         "defaultBranch": "main",
-        "revision": "7e15bf3278a7869d046dc8286539868b1199eff5",
+        "revision": "8380244e9924e7b05ab604e550963900128a6c62",
         "checkoutDirectory": "peonpad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -1313,12 +1721,51 @@
       }
     },
     {
+      "id": "snappad",
+      "name": "SnapPad",
+      "repository": {
+        "slug": "chrissotraidis/snappad",
+        "defaultBranch": "main",
+        "revision": "b4753fb62048b07c86c058ae8482ed0a73a542f5",
+        "checkoutDirectory": "snappad",
+        "checkoutPolicy": "default",
+        "submodules": "none"
+      },
+      "technical": {
+        "status": "manualBuild",
+        "note": "The README says public downloads are paused and previous IPAs and PadMint recipes were retired."
+      },
+      "legal": {
+        "spdxExpression": "NOASSERTION",
+        "distributionReview": "blocked",
+        "rehostAllowed": false,
+        "note": "The README says public downloads are paused and previous IPAs and PadMint recipes were retired."
+      },
+      "build": {
+        "state": "manual",
+        "recipe": null,
+        "runner": "manual/local",
+        "brewPackages": [],
+        "expectedBundleIdentifier": null
+      },
+      "altStore": {
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "noAuditedIPA",
+          "publicDownloadsPaused"
+        ],
+        "app": null,
+        "versions": []
+      }
+    },
+    {
       "id": "spaghettipad",
       "name": "SpaghettiPad",
       "repository": {
         "slug": "chrissotraidis/spaghettipad",
         "defaultBranch": "main",
-        "revision": "4f6bb0c6d5cef545f95384cde531ed3bc61127a6",
+        "revision": "c7107857d9e76d5a3e8708885a4caaae3e055800",
         "checkoutDirectory": "spaghettipad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -1357,9 +1804,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.spaghettipad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "SpaghettiPad",
           "developerName": "SpaghettiPad contributors",
@@ -1422,7 +1871,7 @@
       "repository": {
         "slug": "chrissotraidis/starshippad",
         "defaultBranch": "main",
-        "revision": "6839f8d2a418843b01f837ceffa8e8159e644ae1",
+        "revision": "638093bf07fc406b5d29126778cd6bb7b617c87a",
         "checkoutDirectory": "starshippad",
         "checkoutPolicy": "default",
         "submodules": "recipe"
@@ -1456,9 +1905,11 @@
         "expectedBundleIdentifier": "com.chrissotraidis.starshippad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "upstreamIPAWithdrawn"
+        ],
         "app": {
           "name": "StarshipPad",
           "developerName": "StarshipPad contributors",
@@ -1565,20 +2016,20 @@
       "repository": {
         "slug": "chrissotraidis/sunpad",
         "defaultBranch": "main",
-        "revision": "3f22b820270d3ff6939417db9ade4d31c87192a5",
+        "revision": "dd68ad892764791016e8598c66b6b3d52f71ef23",
         "checkoutDirectory": "sunpad",
         "checkoutPolicy": "default",
         "submodules": "recursive"
       },
       "technical": {
         "status": "auditedUpstreamArtifact",
-        "note": "The project publishes an unsigned arm64 iPhone/iPad IPA with a Metal renderer and an in-app authorized-disc import flow."
+        "note": "The v0.2.0 published IPA is a shell without game code or Nintendo keys. PadMint on Apple Silicon Mac translates a user-owned disc and adds private game code before installation; the installed app then imports the same disc. The shell is not playable by itself."
       },
       "legal": {
         "spdxExpression": "GPL-3.0-or-later",
         "distributionReview": "approvedForDirectLink",
         "rehostAllowed": false,
-        "note": "Direct-link only to the project-owned asset and preserve the corresponding source, GPL license, and third-party notices."
+        "note": "Source is GPL-3.0-or-later. Track the project-owned PadMint recipe and shell only; each user builds a private playable IPA from their own disc. The project requires corresponding source and notices for any future redistributable app artifact."
       },
       "build": {
         "state": "upstreamArtifact",
@@ -1588,9 +2039,11 @@
         "expectedBundleIdentifier": "com.sunpad.SunPad"
       },
       "altStore": {
-        "status": "eligible",
-        "delivery": "upstreamRelease",
-        "exclusionReasons": [],
+        "status": "excluded",
+        "delivery": "none",
+        "exclusionReasons": [
+          "requiresLocalPadMintBuild"
+        ],
         "app": {
           "name": "SunPad",
           "developerName": "SunPad contributors",
@@ -1658,7 +2111,7 @@
       "repository": {
         "slug": "chrissotraidis/vaultpad",
         "defaultBranch": "main",
-        "revision": "2de374463a0932fafc2acaf4881f40f32b9a6fc9",
+        "revision": "02cf262955c1bc2f726a00e58daf230fe265999e",
         "checkoutDirectory": "vaultpad",
         "checkoutPolicy": "default",
         "submodules": "recursive"

@@ -12,22 +12,25 @@ unsigned IPAs.
 
 ## Current inventory
 
-- 20 iPhone/iPad game-port projects from `chrissotraidis`, plus DuskLight and
-  OpenGOAL.
-- All 22 repositories are pinned to exact 40-character commits in
-  `catalog/projects.json` and available under ignored `upstreams/` checkouts.
-- 11 projects have automated local build recipes. Ten are in the normal build
-  matrix; CTRPad remains available as a diagnostic recipe because its IPA is
-  audit-blocked. Manual, Unity-only, and port-required projects remain visible.
-- Twelve project-owned release IPAs currently pass the archive, arm64, iPhoneOS,
-  iPad-family, metadata, entitlement, privacy, nested-bundle, and recognized
-  game-data checks: AnnePad, BearBirdPad, BrawlerPad, DuskLight, F0X,
-  HarkinianPad, MaskPad, PaperPad, RAtouch, SpaghettiPad, StarshipPad, and
-  SunPad.
-- CTRPad has an IPA release, but the current artifact is excluded because its
-  bundle does not declare `CFBundleSupportedPlatforms = [iPhoneOS]`.
-- Every included IPA is linked directly from a project-owned GitHub Release and
-  pinned by size and SHA-256. This workspace does not mirror those binaries.
+- 30 current `chrissotraidis` project repositories, plus DuskLight and OpenGOAL;
+  unavailable CTRPad is preserved in `catalog/unavailable-projects.json`.
+- All 32 active repositories are pinned to exact commits in
+  `catalog/projects.json`. Twenty prior pins were refreshed; existing ignored
+  `upstreams/` checkouts were not synchronized to those commits.
+- Ten existing projects have automated local build recipes. They were not
+  rebuilt against the refreshed pins. Manual, PadMint-template, rights-review,
+  and port-required projects remain visible but excluded where appropriate.
+- Two apps currently enter the AltStore source: DuskLight and RAtouch; their
+  installable versions are hash-pinned direct links to project-owned releases.
+  DuskLight v2.0.3 adds a local-network usage declaration and passes the package
+  structure audit.
+- Nine previously listed projects have no current public IPA asset. Their
+  catalog entries and prior audited versions remain, marked with
+  `upstreamIPAWithdrawn`. SunPad, KartPad, and MeleePad publish app shells that
+  need a private PadMint build before installation; recipes and shell metadata
+  are tracked separately in `catalog/padmint-releases.json`.
+- AgePad and KidPad remain excluded pending Steam integration and artwork
+  distribution review, respectively. No personal game builds are stored here.
 
 ## Day-to-day flow
 
@@ -52,9 +55,8 @@ Import a newer project-owned IPA after the report identifies one:
 ```
 
 The importer audits first and changes only `catalog/projects.json`; use
-`--tag TAG` for an exact release. The same guarded flow is exposed as the
-manual **Import upstream release** GitHub workflow, which opens a reviewable
-pull request.
+`--tag TAG` for an exact release. GitHub Actions is disabled for cost, so its
+committed workflows are inactive; run the scripts locally for this refresh.
 
 Update a reviewed source pin, then synchronize the exact revision:
 
@@ -92,27 +94,18 @@ Generate the source locally:
 ./scripts/generate-store-source.sh
 ```
 
-The normal generator redownloads every referenced asset, verifies its release tag,
-size, SHA-256, and IPA contents, and atomically writes `altstore/source.json`.
-Use `--offline` only for a deliberately cache-only local audit.
+The online generator redownloads every referenced app asset, verifies its release
+tag, size, SHA-256, and IPA contents, and atomically writes
+`altstore/source.json`. Use `--offline` only for a cache-only audit. No live
+Pages deployment is part of local generation.
 
 ## Automation
 
-- **Validate pipeline** checks every catalog/policy change and regenerates the
-  audited source on macOS.
-- **Refresh project pins** reports new account repositories and opens a pull
-  request for newer source commits. It never silently publishes them.
-- **Import upstream release** audits one project-owned release IPA and opens
-  a catalog pull request; permission or packaging changes stop the import.
-- **Track upstream releases** runs daily without an AI model, imports every
-  same-policy release that passes the existing fail-closed audit, and opens one
-  review pull request. New projects and changed security or legal boundaries
-  still require manual approval.
-- **Build standalone apps** builds one selected recipe or the complete
-  build-ready matrix on isolated macOS runners and uploads short-lived proof
-  artifacts.
-- **Update AltStore source** regenerates the audited source and deploys only the
-  JSON file to GitHub Pages after changes reach the default branch.
+Workflow definitions remain in the repository, but GitHub Actions is currently
+disabled for cost. No scheduled release imports, automatic pull requests, builds,
+or Pages deployments run. Use the local commands above to discover changes,
+review source pins, audit an upstream release, and generate the source. Enabling
+Actions or publishing Pages is a separate operational decision.
 
 See [the build pipeline](docs/BUILD-PIPELINE.md),
 [AltStore publication](docs/ALTSTORE-SOURCE.md), and

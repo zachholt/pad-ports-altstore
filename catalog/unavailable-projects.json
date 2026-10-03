@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "archivedAt": "2026-10-03",
+  "projects": [
+    {
+      "reason": "GitHub REST returned 404 for chrissotraidis/ctrpad and its pinned commit; the upstream repository is unavailable.",
+      "project": {
+        "id": "ctrpad",
+        "name": "CTRPad",
+        "repository": {
+          "slug": "chrissotraidis/ctrpad",
+          "defaultBranch": "main",
+          "revision": "ef9c0059950b1c6cd78458612b3608e22bb987ed",
+          "checkoutDirectory": "ctrpad",
+          "checkoutPolicy": "default",
+          "submodules": "recipe"
+        },
+        "technical": {
+          "status": "auditBlocked",
+          "note": "The source compiles and packages, but the resulting IPA omits CFBundleSupportedPlatforms and fails the device-bundle audit."
+        },
+        "legal": {
+          "spdxExpression": "GPL-3.0-only",
+          "distributionReview": "conditionalRehost",
+          "rehostAllowed": true,
+          "note": "Publication requires the exact corresponding-source and notice artifacts beside the IPA."
+        },
+        "build": {
+          "state": "auditBlocked",
+          "recipe": "recipes/ctrpad/build.sh",
+          "runner": "macos-15",
+          "brewPackages": [
+            "cmake",
+            "ninja"
+          ],
+          "expectedBundleIdentifier": "io.github.chrissotraidis.ctrpad"
+        },
+        "altStore": {
+          "status": "excluded",
+          "delivery": "centralRelease",
+          "exclusionReasons": [
+            "releaseReviewRequired",
+            "correspondingSourceRequired"
+          ],
+          "app": null,
+          "versions": []
+        }
+      }
+    }
+  ]
+}
