@@ -88,6 +88,19 @@ Successful builds land under ignored
 toolchain/source provenance JSON. A successful build is not publication
 approval; `altStore.status` remains a separate hard gate.
 
+### Make a personal IPA with PadMint
+
+Double-click [Make IPAs.command](Make%20IPAs.command) to open the official local
+PadMint page. Choose a currently supported port, select your own game file,
+review PadMint's preflight and downloads, then start the build. PadMint runs on
+your Mac and keeps your input and personal IPA local. The launcher verifies and
+extracts the pinned PadMint release before starting it; it does not build games
+or install build tools until you choose a build in PadMint.
+
+See [the personal IPA guide](docs/MAKE-IPAS.md) for command-line preflight and
+advanced use. Personal game-code IPAs are never added to the public AltStore
+source.
+
 Generate the source locally:
 
 ```sh
